@@ -1,0 +1,1040 @@
+{
+  "easy": {
+    "level1": [
+      {
+        "word": "War",
+        "def": "A state of armed conflict between nations, groups, or factions.",
+        "example": "The war lasted for five years before peace negotiations began.",
+        "viDef": "Trạng thái xung đột vũ trang giữa các quốc gia, nhóm hoặc phe phái.",
+        "viExample": "Cuộc chiến kéo dài trong năm năm trước khi các cuộc đàm phán hòa bình bắt đầu.",
+        "cat": "war"
+      },
+      {
+        "word": "Soldier",
+        "def": "A person serving in an army, typically trained for combat.",
+        "example": "The soldier was awarded a medal for bravery in battle.",
+        "viDef": "Một người phục vụ trong quân đội, thường được đào tạo để chiến đấu.",
+        "viExample": "Người lính đã được trao huy chương vì sự dũng cảm trong trận chiến.",
+        "cat": "war"
+      },
+      {
+        "word": "Battle",
+        "def": "A specific fight or engagement within a larger war.",
+        "example": "The battle of Waterloo marked the end of Napoleon's rule.",
+        "viDef": "Một cuộc chiến đấu hoặc giao tranh cụ thể trong một cuộc chiến tranh lớn hơn.",
+        "viExample": "Trận chiến Waterloo đã đánh dấu sự kết thúc sự thống trị của Napoleon.",
+        "cat": "war"
+      },
+      {
+        "word": "Army",
+        "def": "A large organized group of soldiers trained for warfare.",
+        "example": "The army marched toward the enemy capital.",
+        "viDef": "Một nhóm lớn có tổ chức của những người lính được đào tạo cho chiến tranh.",
+        "viExample": "Quân đội hành quân về phía thủ đô của kẻ thù.",
+        "cat": "war"
+      },
+      {
+        "word": "Weapon",
+        "def": "A tool or device used to attack or defend in combat (e.g., guns, swords).",
+        "example": "Soldiers are trained to use various weapons effectively.",
+        "viDef": "Một công cụ hoặc thiết bị được sử dụng để tấn công hoặc phòng thủ trong chiến đấu (ví dụ: súng, kiếm).",
+        "viExample": "Người lính được đào tạo để sử dụng nhiều loại vũ khí một cách hiệu quả.",
+        "cat": "war"
+      },
+      {
+        "word": "Victory",
+        "def": "The act of defeating an enemy or achieving success in a conflict.",
+        "example": "The victory celebration lasted for days throughout the country.",
+        "viDef": "Hành động đánh bại kẻ thù hoặc đạt được thành công trong một cuộc xung đột.",
+        "viExample": "Lễ kỷ niệm chiến thắng kéo dài nhiều ngày trên khắp cả nước.",
+        "cat": "war"
+      },
+      {
+        "word": "Defeat",
+        "def": "The loss of a battle or war to an opponent.",
+        "example": "The defeat at Stalingrad was a turning point in World War II.",
+        "viDef": "Sự thua trận hoặc thua chiến trước đối thủ.",
+        "viExample": "Thất bại tại Stalingrad là một bước ngoặt trong Thế chiến II.",
+        "cat": "war"
+      },
+      {
+        "word": "Peace",
+        "def": "A state of tranquility or absence of war, often following a treaty.",
+        "example": "After years of conflict, peace finally came to the region.",
+        "viDef": "Trạng thái yên bình hoặc không có chiến tranh, thường sau một hiệp ước.",
+        "viExample": "Sau nhiều năm xung đột, hòa bình cuối cùng đã đến với khu vực.",
+        "cat": "war"
+      },
+      {
+        "word": "Ally",
+        "def": "A nation or group that cooperates with another in a war or conflict.",
+        "example": "The two countries were allies during the entire conflict.",
+        "viDef": "Một quốc gia hoặc nhóm hợp tác với một quốc gia khác trong chiến tranh hoặc xung đột.",
+        "viExample": "Hai quốc gia là đồng minh trong suốt cuộc xung đột.",
+        "cat": "war"
+      },
+      {
+        "word": "Enemy",
+        "def": "A hostile nation, group, or individual opposing another in a conflict.",
+        "example": "The enemy forces retreated after heavy losses.",
+        "viDef": "Một quốc gia, nhóm hoặc cá nhân thù địch đối lập với một bên khác trong một cuộc xung đột.",
+        "viExample": "Lực lượng kẻ thù đã rút lui sau khi tổn thất nặng.",
+        "cat": "war"
+      }
+    ],
+    "level2": [
+      {
+        "word": "Strategy",
+        "def": "The overall plan or approach to achieving victory in a war.",
+        "example": "The general developed a new strategy to win the war.",
+        "viDef": "Kế hoạch tổng thể hoặc cách tiếp cận để đạt được chiến thắng trong một cuộc chiến tranh.",
+        "viExample": "Tướng đã phát triển một chiến lược mới để thắng cuộc chiến.",
+        "cat": "war"
+      },
+      {
+        "word": "Tactics",
+        "def": "Specific techniques or maneuvers used in battles to achieve objectives.",
+        "example": "The special forces used advanced tactics in their mission.",
+        "viDef": "Các kỹ thuật hoặc cơ chế cụ thể được sử dụng trong các trận chiến để đạt được mục tiêu.",
+        "viExample": "Lực lượng đặc biệt đã sử dụng các chiến thuật tiên tiến trong nhiệm vụ của họ.",
+        "cat": "war"
+      },
+      {
+        "word": "Siege",
+        "def": "A military operation surrounding a fortified place to force its surrender.",
+        "example": "The siege of the city lasted for nearly a year.",
+        "viDef": "Một hoạt động quân sự bao vây một nơi được củng cố để buộc nó phải đầu hàng.",
+        "viExample": "Cuộc bao vây thành phố kéo dài gần một năm.",
+        "cat": "war"
+      },
+      {
+        "word": "Invasion",
+        "def": "The act of entering another territory with military force to conquer it.",
+        "example": "The invasion began at dawn with a massive air assault.",
+        "viDef": "Hành động nhập vào một lãnh thổ khác với lực lượng quân sự để chinh phục nó.",
+        "viExample": "Cuộc xâm lược bắt đầu vào bình minh với một cuộc không kích quy mô lớn.",
+        "cat": "war"
+      },
+      {
+        "word": "Retreat",
+        "def": "Withdrawing forces from a battle or position to avoid defeat.",
+        "example": "The army had to retreat after losing the battle.",
+        "viDef": "Rút lực lượng khỏi một trận chiến hoặc vị trí để tránh thất bại.",
+        "viExample": "Quân đội đã phải rút lui sau khi thua trận.",
+        "cat": "war"
+      },
+      {
+        "word": "Truce",
+        "def": "A temporary halt in fighting agreed upon by both sides.",
+        "example": "The truce allowed humanitarian aid to reach the civilians.",
+        "viDef": "Một sự tạm dừng chiến đấu được các bên đồng ý.",
+        "viExample": "Lệnh ngừng bắn đã cho phép viện trợ nhân đạo tiếp cận dân thường.",
+        "cat": "war"
+      },
+      {
+        "word": "Blockade",
+        "def": "Preventing supplies or reinforcements from reaching an enemy by surrounding them.",
+        "example": "The naval blockade prevented any ships from entering the harbor.",
+        "viDef": "Ngăn chặn nguồn cung hoặc viện trợ tiếp cận kẻ thù bằng cách bao vây họ.",
+        "viExample": "Sự phong tỏa hải quân đã ngăn bất kỳ con tàu nào vào cảng.",
+        "cat": "war"
+      },
+      {
+        "word": "Espionage",
+        "def": "The practice of spying to gather secret information about an enemy.",
+        "example": "The spy was arrested for espionage against the government.",
+        "viDef": "Việc thực hiện gián điệp để thu thập thông tin bí mật về kẻ thù.",
+        "viExample": "Gián điệp đã bị bắt vì hoạt động gián điệp chống lại chính phủ.",
+        "cat": "war"
+      },
+      {
+        "word": "Conscription",
+        "def": "Mandatory enlistment of people into military service.",
+        "example": "Many young men faced conscription during the war.",
+        "viDef": "Việc nhập ngũ bắt buộc của người dân vào phục vụ quân đội.",
+        "viExample": "Nhiều thanh niên phải đối mặt với việc nhập ngũ trong thời chiến.",
+        "cat": "war"
+      },
+      {
+        "word": "Armistice",
+        "def": "A formal agreement to stop fighting, often leading to peace negotiations.",
+        "example": "The armistice was signed on November 11, 1918.",
+        "viDef": "Một thỏa thuận chính thức để ngừng chiến đấu, thường dẫn đến các cuộc đàm phán hòa bình.",
+        "viExample": "Hiệp định đình chiến đã được ký vào ngày 11 tháng 11 năm 1918.",
+        "cat": "war"
+      }
+    ],
+    "level3": [
+      {
+        "word": "Attrition",
+        "def": "A strategy of wearing down an enemy through continuous losses.",
+        "example": "The war of attrition depleted both sides' resources.",
+        "viDef": "Một chiến lược làm suy yếu kẻ thù thông qua những tổn thất liên tục.",
+        "viExample": "Cuộc chiến tranh hao mòn đã làm cạn kiệt nguồn lực của cả hai bên.",
+        "cat": "war"
+      },
+      {
+        "word": "Blitzkrieg",
+        "def": "A rapid, overwhelming attack strategy, often using combined arms (e.g., tanks, air support).",
+        "example": "The blitzkrieg tactic allowed Germany to quickly conquer much of Europe.",
+        "viDef": "Một chiến lược tấn công nhanh chóng, áp đảo, thường sử dụng kết hợp nhiều vũ khí (ví dụ: xe tăng, hỗ trợ không quân).",
+        "viExample": "Chiến thuật blitzkrieg đã cho phép Đức nhanh chóng chinh phục phần lớn châu Âu.",
+        "cat": "war"
+      },
+      {
+        "word": "Guerrilla",
+        "def": "Irregular warfare using small, mobile groups to harass or ambush larger forces.",
+        "example": "Guerrilla fighters used hit-and-run tactics against the occupying army.",
+        "viDef": "Chiến tranh không đều đặn sử dụng các nhóm nhỏ, cơ động để quấy rối hoặc phục kích các lực lượng lớn hơn.",
+        "viExample": "Các chiến binh du kích đã sử dụng chiến thuật đánh và chạy chống lại quân đội chiếm đóng.",
+        "cat": "war"
+      },
+      {
+        "word": "Insurgency",
+        "def": "An organized rebellion against a government or occupying force.",
+        "example": "The government struggled to contain the growing insurgency.",
+        "viDef": "Một cuộc nổi dậy có tổ chức chống lại chính phủ hoặc lực lượng chiếm đóng.",
+        "viExample": "Chính phủ đã vật lộn để kiềm chế cuộc nổi dậy ngày càng gia tăng.",
+        "cat": "war"
+      },
+      {
+        "word": "Scorched earth",
+        "def": "Destroying resources (e.g., crops, infrastructure) to deny them to the enemy.",
+        "example": "The retreating army employed a scorched earth policy.",
+        "viDef": "Phá hủy tài nguyên (ví dụ: cây trồng, cơ sở hạ tầng) để từ chối chúng cho kẻ thù.",
+        "viExample": "Quân đội rút lui đã sử dụng chính sách tiêu thổ kháng chiến.",
+        "cat": "war"
+      },
+      {
+        "word": "Total war",
+        "def": "A war involving all societal resources, targeting both military and civilian assets.",
+        "example": "World War II is often cited as an example of total war.",
+        "viDef": "Một cuộc chiến tranh liên quan đến tất cả nguồn lực xã hội, nhắm vào cả tài sản quân sự và dân sự.",
+        "viExample": "Thế chiến II thường được trích dẫn như một ví dụ về chiến tranh tổng lực.",
+        "cat": "war"
+      },
+      {
+        "word": "Proxy war",
+        "def": "A conflict where two powers support opposing sides without directly fighting.",
+        "example": "The Cold War saw many proxy wars in developing nations.",
+        "viDef": "Một cuộc xung đột mà ở đó hai cường độ ủng hộ các bên đối lập mà không trực tiếp chiến đấu.",
+        "viExample": "Chiến tranh Lạnh đã chứng kiến nhiều cuộc chiến tranh ủy nhiệm ở các quốc gia đang phát triển.",
+        "cat": "war"
+      },
+      {
+        "word": "Deterrence",
+        "def": "Preventing an enemy's attack by threatening severe retaliation.",
+        "example": "The policy of nuclear deterrence prevented direct conflict between superpowers.",
+        "viDef": "Ngăn chặn cuộc tấn công của kẻ thù bằng cách đe dọa trả đũa nặng nề.",
+        "viExample": "Chính sách răn đe hạt nhân đã ngăn chặn xung đột trực tiếp giữa các cường quốc.",
+        "cat": "war"
+      },
+      {
+        "word": "Mutually assured destruction",
+        "def": "A scenario where both sides' nuclear arsenals ensure total destruction if used.",
+        "example": "The concept of mutually assured destruction defined Cold War military strategy.",
+        "viDef": "Một kịch bản mà ở đó kho vũ khí hạt nhân của cả hai bên đảm bảo sự hủy diệt hoàn toàn nếu được sử dụng.",
+        "viExample": "Khái niệm hủy diệt đảm bảo lẫn nhau đã định hình chiến lược quân sự trong Chiến tranh Lạnh.",
+        "cat": "war"
+      },
+      {
+        "word": "Asymmetric warfare",
+        "def": "Conflict where one side uses unconventional tactics due to a power imbalance.",
+        "example": "Terrorist groups often engage in asymmetric warfare against state militaries.",
+        "viDef": "Xung đột mà ở đó một bên sử dụng các chiến thuật phi truyền thống do mất cân bằng quyền lực.",
+        "viExample": "Các nhóm khủng bố thường tham gia vào chiến tranh bất cân xứng với quân đội nhà nước.",
+        "cat": "war"
+      }
+    ],
+    "finalBoss": [
+      {
+        "word": "Armistice",
+        "def": "An agreement made by opposing sides in a war to stop fighting for a certain time.",
+        "example": "The armistice was signed after months of negotiation.",
+        "viDef": "Một thỏa thuận được thực hiện bởi các bên đối lập trong một cuộc chiến để ngừng chiến đấu trong một khoảng thời gian nhất định.",
+        "viExample": "Hiệp định đình chiến đã được ký sau nhiều tháng đàm phán.",
+        "cat": "war"
+      },
+      {
+        "word": "Siege",
+        "def": "A military operation in which an enemy surrounds a town or building, cutting off essential supplies.",
+        "example": "The siege of the city lasted for nearly a year.",
+        "viDef": "Một hoạt động quân sự trong đó kẻ thù bao vây một thị trấn hoặc tòa nhà, cắt đứt nguồn cung cấp thiết yếu.",
+        "viExample":"Cuộc bao vây thành phố kéo dài gần một năm.",
+        "cat":"war"
+      },
+      {
+        "word": "Guerrilla",
+        "def": "A member of a small independent group taking part in irregular fighting, typically against larger regular forces.",
+        "example": "Guerrilla fighters used hit-and-run tactics.",
+        "viDef": "Một thành viên của một nhóm nhỏ độc lập tham gia vào các trận chiến không đều đặn, thường chống lại các lực lượng thường quy lớn hơn.",
+        "viExample": "Các chiến binh du kích đã sử dụng chiến thuật đánh và chạy.",
+        "cat": "war"
+      },
+      {
+        "word": "Reconnaissance",
+        "def": "Military observation of a region to locate an enemy or ascertain strategic features.",
+        "example": "The plane was on a reconnaissance mission.",
+        "viDef": "Quan sát quân sự một khu vực để định vị kẻ thù hoặc xác định các đặc điểm chiến lược.",
+        "viExample": "Chiếc máy bay đang thực hiện nhiệm vụ trinh sát.",
+        "cat": "war"
+      },
+      {
+        "word": "Battalion",
+        "def": "A large body of troops ready for battle, especially an infantry unit forming part of a brigade typically commanded by a lieutenant colonel.",
+        "example": "The battalion was sent to reinforce the front lines.",
+        "viDef": "Một lực lượng lớn quân đội sẵn sàng chiến đấu, đặc biệt là một đơn vị bộ binh hình thành một phần của một lữ đoàn thường được chỉ huy bởi một trung tá.",
+        "viExample": "Tiểu đoàn đã được gửi đến để tăng cường cho tiền tuyến.",
+        "cat": "war"
+      },
+      {
+        "word": "Deployment",
+        "def": "The movement of troops or equipment to a place or position for military action.",
+        "example": "The deployment of additional troops was approved.",
+        "viDef": "Sự di chuyển của quân đội hoặc thiết bị đến một nơi hoặc vị trí cho hành động quân sự.",
+        "viExample": "Việc triển khai thêm quân đội đã được phê duyệt.",
+        "cat": "war"
+      },
+      {
+        "word": "Attrition",
+        "def": "A strategy of wearing down an enemy through continuous losses.",
+        "example": "The war of attrition depleted both sides' resources.",
+        "viDef": "Một chiến lược làm suy yếu kẻ thù thông qua những tổn thất liên tục.",
+        "viExample": "Cuộc chiến tranh hao mòn đã làm cạn kiệt nguồn lực của cả hai bên.",
+        "cat": "war"
+      },
+      {
+        "word": "Blitzkrieg",
+        "def": "A rapid, overwhelming attack strategy, often using combined arms (e.g., tanks, air support).",
+        "example": "The blitzkrieg tactic allowed Germany to quickly conquer much of Europe.",
+        "viDef": "Một chiến lược tấn công nhanh chóng, áp đảo, thường sử dụng kết hợp nhiều vũ khí (ví dụ: xe tăng, hỗ trợ không quân).",
+        "viExample": "Chiến thuật blitzkrieg đã cho phép Đức nhanh chóng chinh phục phần lớn châu Âu.",
+        "cat": "war"
+      },
+      {
+        "word": "Insurgency",
+        "def": "An organized rebellion against a government or occupying force.",
+        "example": "The government struggled to contain the growing insurgency.",
+        "viDef": "Một cuộc nổi dậy có tổ chức chống lại chính phủ hoặc lực lượng chiếm đóng.",
+        "viExample": "Chính phủ đã vật lộn để kiềm chế cuộc nổi dậy ngày càng gia tăng.",
+        "cat": "war"
+      },
+      {
+        "word": "Total war",
+        "def": "A war involving all societal resources, targeting both military and civilian assets.",
+        "example": "World War II is often cited as an example of total war.",
+        "viDef": "Một cuộc chiến tranh liên quan đến tất cả nguồn lực xã hội, nhắm vào cả tài sản quân sự và dân sự.",
+        "viExample": "Thế chiến II thường được trích dẫn như một ví dụ về chiến tranh tổng lực.",
+        "cat": "war"
+      },
+      {
+        "word": "Deterrence",
+        "def": "Preventing an enemy's attack by threatening severe retaliation.",
+        "example": "The policy of nuclear deterrence prevented direct conflict between superpowers.",
+        "viDef": "Ngăn chặn cuộc tấn công của kẻ thù bằng cách đe dọa trả đũa nặng nề.",
+        "viExample": "Chính sách răn đe hạt nhân đã ngăn chặn xung đột trực tiếp giữa các cường quốc.",
+        "cat": "war"
+      },
+      {
+        "word": "Asymmetric warfare",
+        "def": "Conflict where one side uses unconventional tactics due to a power imbalance.",
+        "example": "Terrorist groups often engage in asymmetric warfare against state militaries.",
+        "viDef": "Xung đột mà ở đó một bên sử dụng các chiến thuật phi truyền thống do mất cân bằng quyền lực.",
+        "viExample": "Các nhóm khủng bố thường tham gia vào chiến tranh bất cân xứng với quân đội nhà nước.",
+        "cat": "war"
+      }
+    ]
+  },
+  "medium": {
+    "level1": [
+      {
+        "word": "Hostilities",
+        "def": "Aggressive actions or warfare between groups or nations.",
+        "example": "Hostilities broke out along the border yesterday.",
+        "viDef": "Hành động hung hăng hoặc chiến tranh giữa các nhóm hoặc quốc gia.",
+        "viExample": "Các hành động thù địch đã nổ ra dọc biên giới vào ngày hôm qua.",
+        "cat": "war"
+      },
+      {
+        "word": "Combatant",
+        "def": "An individual or group engaged in fighting during a war.",
+        "example": "The treaty required all combatants to lay down their arms.",
+        "viDef": "Một cá nhân hoặc nhóm tham gia chiến đấu trong chiến tranh.",
+        "viExample": "Hiệp ước yêu cầu tất cả những người tham chiến phải hạ vũ khí.",
+        "cat": "war"
+      },
+      {
+        "word": "Engagement",
+        "def": "A military encounter or battle, often smaller in scale.",
+        "example": "The brief engagement resulted in several casualties.",
+        "viDef": "Một cuộc chạm trán quân sự hoặc trận chiến, thường có quy mô nhỏ hơn.",
+        "viExample": "Cuộc chạm trán ngắn đã dẫn đến một số thương vong.",
+        "cat": "war"
+      },
+      {
+        "word": "Forces",
+        "def": "Organized military units, synonymous with army or troops.",
+        "example": "The government deployed additional forces to the region.",
+        "viDef": "Các đơn vị quân sự có tổ chức, đồng nghĩa với quân đội hoặc quân đội.",
+        "viExample": "Chính phủ đã triển khai thêm lực lượng đến khu vực.",
+        "cat": "war"
+      },
+      {
+        "word": "Ordnance",
+        "def": "Military supplies, especially weapons and ammunition.",
+        "example": "The explosion destroyed an ordnance depot.",
+        "viDef": "Tiếp tế quân sự, đặc biệt là vũ khí và đạn dược.",
+        "viExample": "Vụ nổ đã phá hủy một kho vũ khí.",
+        "cat": "war"
+      },
+      {
+        "word": "Conquest",
+        "def": "The act of defeating and taking control of a territory or people.",
+        "example": "The conquest of the empire took many years.",
+        "viDef": "Hành động đánh bại và kiểm soát một lãnh thổ hoặc con người.",
+        "viExample": "Việc chinh phục đế chế đã mất nhiều năm.",
+        "cat": "war"
+      },
+      {
+        "word": "Rout",
+        "def": "A decisive defeat where the enemy is completely scattered.",
+        "example": "The battle ended in a rout of the opposing forces.",
+        "viDef": "Một thất bại quyết định mà ở đó kẻ thù bị phân tán hoàn toàn.",
+        "viExample": "Trận chiến kết thúc bằng việc đánh bại hoàn toàn lực lượng đối lập.",
+        "cat": "war"
+      },
+      {
+        "word": "Detente",
+        "def": "A period of reduced tensions between opposing sides, often diplomatic.",
+        "example": "Detente between the superpowers marked the 1970s.",
+        "viDef": "Một giai đoạn căng thẳng giảm bớt giữa các bên đối lập, thường mang tính ngoại giao.",
+        "viExample": "Sự hòa dãn giữa các cường quốc đã đặc trưng cho những năm 1970.",
+        "cat": "war"
+      },
+      {
+        "word": "Confederate",
+        "def": "An ally or group united for a common military purpose.",
+        "example": "The confederate tribes fought against the invaders.",
+        "viDef": "Một đồng minh hoặc nhóm thống nhất vì một mục đích quân sự chung.",
+        "viExample": "Các bộ lạc liên minh đã chiến đấu chống lại những kẻ xâm lược.",
+        "cat": "war"
+      },
+      {
+        "word": "Adversary",
+        "def": "An opponent or enemy in a conflict, similar to foe or enemy.",
+        "example": "The military strategist analyzed every move of the adversary.",
+        "viDef": "Một đối thủ hoặc kẻ thù trong một cuộc xung đột, tương tự như kẻ thù hoặc kẻ thù.",
+        "viExample": "Nhà chiến lược quân sự đã phân tích mọi động thái của đối thủ.",
+        "cat": "war"
+      }
+    ],
+    "level2": [
+      {
+        "word": "Stratagem",
+        "def": "A clever plan or ruse to deceive or outmaneuver the enemy.",
+        "example": "The Trojan horse was one of history's most famous stratagems.",
+        "viDef": "Một kế hoạch thông minh hoặc mưu kế để lừa gạt hoặc vượt mặt kẻ thù.",
+        "viExample": "Ngựa thành Troia là một trong những mưu kế nổi tiếng nhất trong lịch sử.",
+        "cat": "war"
+      },
+      {
+        "word": "Ploys",
+        "def": "Tactical tricks or maneuvers to gain an advantage in battle.",
+        "example": "The commander used several ploys to confuse the enemy.",
+        "viDef": "Những mánh khóe chiến thuật hoặc cơ chế để giành lợi thế trong trận chiến.",
+        "viExample": "Người chỉ huy đã sử dụng một số mánh khóe để làm nhầm lẫn kẻ thù.",
+        "cat": "war"
+      },
+      {
+        "word": "Beleaguerment",
+        "def": "Surrounding and harassing a fortified position, like a siege.",
+        "example": "The beleaguerment of the fortress lasted for months.",
+        "viDef": "Bao vây và quấy rối một vị trí được củng cố, giống như một cuộc bao vây.",
+        "viExample": "Cuộc bao vây pháo đài đã kéo dài trong nhiều tháng.",
+        "cat": "war"
+      },
+      {
+        "word": "Irruption",
+        "def": "A sudden, violent invasion or attack, akin to incursion.",
+        "example": "The irruption of enemy forces caught the defenders by surprise.",
+        "viDef": "Một cuộc xâm lược hoặc tấn công đột ngột, bạo lực, tương tự như cuộc xâm nhập.",
+        "viExample": "Sự xâm nhập đột ngột của lực lượng kẻ thù đã khiến những người bảo vệ bất ngờ.",
+        "cat": "war"
+      },
+      {
+        "word": "Pullback",
+        "def": "Withdrawing forces strategically, similar to retreat or withdrawal.",
+        "example": "The general ordered a pullback to more defensible positions.",
+        "viDef": "Rút lực lượng một cách chiến lược, tương tự như rút lui hoặc rút quân.",
+        "viExample": "Người tướng đã ra lệnh rút lui về các vị trí phòng thủ tốt hơn.",
+        "cat": "war"
+      },
+      {
+        "word": "Armistice",
+        "def": "Same as Easy Mode, a formal agreement to stop fighting.",
+        "example": "The armistice was signed on November 11, 1918.",
+        "viDef": "Giống như Chế độ Dễ, một thỏa thuận chính thức để ngừng chiến đấu.",
+        "viExample": "Hiệp định đình chiến đã được ký vào ngày 11 tháng 11 năm 1918.",
+        "cat": "war"
+      },
+      {
+        "word": "Encirclement",
+        "def": "Surrounding an enemy to cut off escape or supplies, related to blockade.",
+        "example": "The encirclement of the enemy division was complete.",
+        "viDef": "Bao vây kẻ thù để cắt đứt đường thoát hoặc nguồn cung, liên quan đến việc phong tỏa.",
+        "viExample": "Việc bao vây sư đoàn kẻ thù đã hoàn tất.",
+        "cat": "war"
+      },
+      {
+        "word": "Intelligence",
+        "def": "Secret information gathered about an enemy, synonymous with espionage.",
+        "example": "Military intelligence revealed the enemy's plans.",
+        "viDef": "Thông tin bí mật được thu thập về kẻ thù, đồng nghĩa với hoạt động gián điệp.",
+        "viExample": "Tình báo quân sự đã tiết lộ kế hoạch của kẻ thù.",
+        "cat": "war"
+      },
+      {
+        "word": "Levy",
+        "def": "The act of conscripting or raising troops for military service.",
+        "example": "The king imposed a levy to support the war effort.",
+        "viDef": "Hành động nhập ngũ hoặc tuyển quân cho phục vụ quân sự.",
+        "viExample": "Nhà vua đã áp đặt một khoản thuế để hỗ trợ nỗ lực chiến tranh.",
+        "cat": "war"
+      },
+      {
+        "word": "Pacification",
+        "def": "Restoring peace by suppressing resistance, often after a conflict.",
+        "example": "The pacification campaign lasted several years.",
+        "viDef": "Khôi phục hòa bình bằng cách đàn áp sự kháng cự, thường sau một cuộc xung đột.",
+        "viExample": "Chiến dịch bình định đã kéo dài nhiều năm.",
+        "cat": "war"
+      }
+    ],
+    "level3": [
+      {
+        "word": "Erosion",
+        "def": "Gradually weakening an enemy's strength, synonymous with attrition.",
+        "example": "The erosion of enemy morale became evident as the war continued.",
+        "viDef": "Dần dần làm suy yếu sức mạnh của kẻ thù, đồng nghĩa với sự hao mòn.",
+        "viExample": "Sự xói mòn tinh thần của kẻ thù trở nên rõ ràng khi cuộc chiến tiếp diễn.",
+        "cat": "war"
+      },
+      {
+        "word": "Rapid dominance",
+        "def": "Overwhelming an enemy quickly, similar to blitzkrieg or lightning war.",
+        "example": "The strategy of rapid dominance was key to the campaign's success.",
+        "viDef": "Áp đảo kẻ thù một cách nhanh chóng, tương tự như blitzkrieg hoặc chiến tranh chớp nhoáng.",
+        "viExample": "Chiến lược thống trị nhanh chóng là chìa khóa cho thành công của chiến dịch.",
+        "cat": "war"
+      },
+      {
+        "word": "Partisan",
+        "def": "A member of an irregular resistance group, like guerrilla fighters.",
+        "example": "Partisans disrupted supply lines behind enemy lines.",
+        "viDef": "Một thành viên của một nhóm kháng chiến không chính quy, giống như các chiến binh du kích.",
+        "viExample": "Các du kích quân đã làm gián đoạn các tuyến tiếp tế phía sau chiến tuyến của kẻ thù.",
+        "cat": "war"
+      },
+      {
+        "word": "Uprising",
+        "def": "A revolt or rebellion against authority, synonymous with insurgency.",
+        "example": "The uprising was brutally suppressed by government forces.",
+        "viDef": "Một cuộc nổi loạn hoặc nổi dậy chống lại chính quyền, đồng nghĩa với cuộc nổi dậy.",
+        "viExample": "Cuộc nổi dậy đã bị đàn áp tàn bạo bởi lực lượng chính phủ.",
+        "cat": "war"
+      },
+      {
+        "word": "Total destruction",
+        "def": "Devastating resources to deny them to the enemy, like scorched earth.",
+        "example": "The policy of total destruction left the region in ruins.",
+        "viDef": "Phá hủy tài nguyên để từ chối chúng cho kẻ thù, giống như chính sách tiêu thổ kháng chiến.",
+        "viExample": "Chính sách hủy diệt hoàn toàn đã để lại khu vực trong đống đổ nát.",
+        "cat": "war"
+      },
+      {
+        "word": "Absolute war",
+        "def": "A conflict involving all available resources, akin to total war.",
+        "example": "The concept of absolute war was developed by military theorists.",
+        "viDef": "Một cuộc xung đột liên quan đến tất cả các nguồn lực có sẵn, tương tự như chiến tranh tổng lực.",
+        "viExample": "Khái niệm chiến tranh tuyệt đối đã được phát triển bởi các nhà lý thuyết quân sự.",
+        "cat": "war"
+      },
+      {
+        "word": "Surrogate war",
+        "def": "A conflict fought through intermediaries, synonymous with proxy war.",
+        "example": "The Cold War featured several surrogate wars between superpowers.",
+        "viDef": "Một cuộc xung đột được tiến hành thông qua người trung gian, đồng nghĩa với chiến tranh ủy nhiệm.",
+        "viExample": "Chiến tranh Lạnh có một số cuộc chiến tranh ủy nhiệm giữa các cường quốc.",
+        "cat": "war"
+      },
+      {
+        "word": "Intimidation",
+        "def": "Using threats to prevent enemy action, similar to deterrence.",
+        "example": "The strategy of intimidation failed to prevent the invasion.",
+        "viDef": "Sử dụng các mối đe dọa để ngăn chặn hành động của kẻ thù, tương tự như sự răn đe.",
+        "viExample": "Chiến lược đe dọa đã không ngăn được cuộc xâm lược.",
+        "cat": "war"
+      },
+      {
+        "word": "Assured retaliation",
+        "def": "A policy ensuring devastating counterattacks, like mutually assured destruction.",
+        "example": "The doctrine of assured retaliation guided nuclear policy for decades.",
+        "viDef": "Một chính sách đảm bảo các cuộc phản công tàn khốc, giống như sự hủy diệt đảm bảo lẫn nhau.",
+        "viExample": "Học thuyết về sự trả đũa được đảm bảo đã định hướng chính sách hạt nhân trong nhiều thập kỷ.",
+        "cat": "war"
+      },
+      {
+        "word": "Irregular warfare",
+        "def": "Non-traditional combat tactics, synonymous with asymmetric warfare.",
+        "example": "Modern militaries must prepare for both conventional and irregular warfare.",
+        "viDef": "Các chiến thuật chiến đấu phi truyền thống, đồng nghĩa với chiến tranh bất cân xứng.",
+        "viExample": "Quân đội hiện đại phải chuẩn bị cho cả chiến tranh thông thường và chiến tranh không đều đặn.",
+        "cat": "war"
+      }
+    ],
+    "finalBoss": [
+      {
+        "word": "Armistice",
+        "def": "An agreement made by opposing sides in a war to stop fighting for a certain time.",
+        "example": "The armistice was signed after months of negotiation.",
+        "viDef": "Một thỏa thuận được thực hiện bởi các bên đối lập trong một cuộc chiến để ngừng chiến đấu trong một khoảng thời gian nhất định.",
+        "viExample": "Hiệp định đình chiến đã được ký sau nhiều tháng đàm phán.",
+        "cat": "war"
+      },
+      {
+        "word": "Siege",
+        "def": "A military operation in which an enemy surrounds a town or building, cutting off essential supplies.",
+        "example": "The siege of the city lasted for nearly a year.",
+        "viDef": "Một hoạt động quân sự trong đó kẻ thù bao vây một thị trấn hoặc tòa nhà, cắt đứt nguồn cung cấp thiết yếu.",
+        "viExample":"Cuộc bao vây thành phố kéo dài gần một năm.",
+        "cat":"war"
+      },
+      {
+        "word": "Guerrilla",
+        "def": "A member of a small independent group taking part in irregular fighting, typically against larger regular forces.",
+        "example": "Guerrilla fighters used hit-and-run tactics.",
+        "viDef": "Một thành viên của một nhóm nhỏ độc lập tham gia vào các trận chiến không đều đặn, thường chống lại các lực lượng thường quy lớn hơn.",
+        "viExample": "Các chiến binh du kích đã sử dụng chiến thuật đánh và chạy.",
+        "cat": "war"
+      },
+      {
+        "word": "Reconnaissance",
+        "def": "Military observation of a region to locate an enemy or ascertain strategic features.",
+        "example": "The plane was on a reconnaissance mission.",
+        "viDef": "Quan sát quân sự một khu vực để định vị kẻ thù hoặc xác định các đặc điểm chiến lược.",
+        "viExample": "Chiếc máy bay đang thực hiện nhiệm vụ trinh sát.",
+        "cat": "war"
+      },
+      {
+        "word": "Battalion",
+        "def": "A large body of troops ready for battle, especially an infantry unit forming part of a brigade typically commanded by a lieutenant colonel.",
+        "example": "The battalion was sent to reinforce the front lines.",
+        "viDef": "Một lực lượng lớn quân đội sẵn sàng chiến đấu, đặc biệt là một đơn vị bộ binh hình thành một phần của một lữ đoàn thường được chỉ huy bởi một trung tá.",
+        "viExample": "Tiểu đoàn đã được gửi đến để tăng cường cho tiền tuyến.",
+        "cat": "war"
+      },
+      {
+        "word": "Deployment",
+        "def": "The movement of troops or equipment to a place or position for military action.",
+        "example": "The deployment of additional troops was approved.",
+        "viDef": "Sự di chuyển của quân đội hoặc thiết bị đến một nơi hoặc vị trí cho hành động quân sự.",
+        "viExample": "Việc triển khai thêm quân đội đã được phê duyệt.",
+        "cat": "war"
+      },
+      {
+        "word": "Erosion",
+        "def": "Gradually weakening an enemy's strength, synonymous with attrition.",
+        "example": "The erosion of enemy morale became evident as the war continued.",
+        "viDef": "Dần dần làm suy yếu sức mạnh của kẻ thù, đồng nghĩa với sự hao mòn.",
+        "viExample": "Sự xói mòn tinh thần của kẻ thù trở nên rõ ràng khi cuộc chiến tiếp diễn.",
+        "cat": "war"
+      },
+      {
+        "word": "Rapid dominance",
+        "def": "Overwhelming an enemy quickly, similar to blitzkrieg or lightning war.",
+        "example": "The strategy of rapid dominance was key to the campaign's success.",
+        "viDef": "Áp đảo kẻ thù một cách nhanh chóng, tương tự như blitzkrieg hoặc chiến tranh chớp nhoáng.",
+        "viExample": "Chiến lược thống trị nhanh chóng là chìa khóa cho thành công của chiến dịch.",
+        "cat": "war"
+      },
+      {
+        "word": "Uprising",
+        "def": "A revolt or rebellion against authority, synonymous with insurgency.",
+        "example": "The uprising was brutally suppressed by government forces.",
+        "viDef": "Một cuộc nổi loạn hoặc nổi dậy chống lại chính quyền, đồng nghĩa với cuộc nổi dậy.",
+        "viExample": "Cuộc nổi dậy đã bị đàn áp tàn bạo bởi lực lượng chính phủ.",
+        "cat": "war"
+      },
+      {
+        "word": "Total destruction",
+        "def": "Devastating resources to deny them to the enemy, like scorched earth.",
+        "example": "The policy of total destruction left the region in ruins.",
+        "viDef": "Phá hủy tài nguyên để từ chối chúng cho kẻ thù, giống như chính sách tiêu thổ kháng chiến.",
+        "viExample": "Chính sách hủy diệt hoàn toàn đã để lại khu vực trong đống đổ nát.",
+        "cat": "war"
+      },
+      {
+        "word": "Intimidation",
+        "def": "Using threats to prevent enemy action, similar to deterrence.",
+        "example": "The strategy of intimidation failed to prevent the invasion.",
+        "viDef": "Sử dụng các mối đe dọa để ngăn chặn hành động của kẻ thù, tương tự như sự răn đe.",
+        "viExample": "Chiến lược đe dọa đã không ngăn được cuộc xâm lược.",
+        "cat": "war"
+      },
+      {
+        "word": "Irregular warfare",
+        "def": "Non-traditional combat tactics, synonymous with asymmetric warfare.",
+        "example": "Modern militaries must prepare for both conventional and irregular warfare.",
+        "viDef": "Các chiến thuật chiến đấu phi truyền thống, đồng nghĩa với chiến tranh bất cân xứng.",
+        "viExample": "Quân đội hiện đại phải chuẩn bị cho cả chiến tranh thông thường và chiến tranh không đều đặn.",
+        "cat": "war"
+      }
+    ]
+  },
+  "hard": {
+    "level1": [
+      {
+        "word": "Conflict",
+        "def": "A general term for a struggle or fight, often used for wars or disputes.",
+        "example": "The conflict between the two nations has lasted for decades.",
+        "viDef": "Một thuật ngữ chung cho một cuộc đấu tranh hoặc chiến đấu, thường được sử dụng cho các cuộc chiến tranh hoặc tranh chấp.",
+        "viExample": "Cuộc xung đột giữa hai quốc gia đã kéo dài trong nhiều thập kỷ.",
+        "cat": "war"
+      },
+      {
+        "word": "Warrior",
+        "def": "A skilled or experienced fighter, often with cultural or historical connotations.",
+        "example": "The ancient warriors were known for their bravery in battle.",
+        "viDef": "Một người chiến đấu có kỹ năng hoặc kinh nghiệm, thường có hàm ý văn hóa hoặc lịch sử.",
+        "viExample": "Các chiến binh cổ đại được biết đến với sự dũng cảm trong trận chiến.",
+        "cat": "war"
+      },
+      {
+        "word": "Fight",
+        "def": "A specific combat or skirmish, less formal than a battle.",
+        "example": "The fight broke out in the marketplace between rival gangs.",
+        "viDef": "Một cuộc chiến đấu hoặc giao tranh cụ thể, ít trang trọng hơn một trận chiến.",
+        "viExample": "Cuộc ẩu đả đã nổ ra ở chợ giữa các băng nhóm đối địch.",
+        "cat": "war"
+      },
+      {
+        "word": "Troops",
+        "def": "Groups of soldiers collectively engaged in military operations.",
+        "example": "The troops were deployed to the conflict zone.",
+        "viDef": "Các nhóm người lính cùng nhau tham gia vào các hoạt động quân sự.",
+        "viExample": "Các quân đội đã được triển khai đến khu vực xung đột.",
+        "cat": "war"
+      },
+      {
+        "word": "Arm",
+        "def": "A weapon or piece of military equipment (e.g., firearms, artillery).",
+        "example": "The country began to arm its citizens in preparation for invasion.",
+        "viDef": "Một vũ khí hoặc thiết bị quân sự (ví dụ: súng, pháo).",
+        "viExample": "Quốc gia này bắt đầu trang bị vũ khí cho công dân của mình để chuẩn bị cho cuộc xâm lược.",
+        "cat": "war"
+      },
+      {
+        "word": "Triumph",
+        "def": "A significant victory or success in a military engagement.",
+        "example": "The triumph was celebrated with a parade through the capital.",
+        "viDef": "Một chiến thắng hoặc thành công đáng kể trong một cuộc đụng độ quân sự.",
+        "viExample": "Chiến thắng đã được ăn mừng bằng một cuộc diễu hành qua thủ đô.",
+        "cat": "war"
+      },
+      {
+        "word": "Loss",
+        "def": "Being defeated or losing ground in a conflict.",
+        "example": "The loss of the strategic position was a major setback.",
+        "viDef": "Bị đánh bại hoặc mất đất trong một cuộc xung đột.",
+        "viExample": "Việc mất vị trí chiến lược là một trở ngại lớn.",
+        "cat": "war"
+      },
+      {
+        "word": "Ceasefire",
+        "def": "A temporary suspension of hostilities, often informal.",
+        "example": "The ceasefire was broken within hours of being announced.",
+        "viDef": "Một sự đình chỉ tạm thời các hành động thù địch, thường không chính thức.",
+        "viExample": "Lệnh ngừng bắn đã bị phá vỡ trong vài giờ sau khi được công bố.",
+        "cat": "war"
+      },
+      {
+        "word": "Partner",
+        "def": "A group or nation allied in a military effort.",
+        "example": "The nation sought partners in its fight against terrorism.",
+        "viDef": "Một nhóm hoặc quốc gia đồng minh trong một nỗ lực quân sự.",
+        "viExample": "Quốc gia này đã tìm kiếm các đối tác trong cuộc chiến chống khủng bố.",
+        "cat": "war"
+      },
+      {
+        "word": "Foe",
+        "def": "An opponent or enemy in a conflict.",
+        "example": "The warrior faced his greatest foe in the final battle.",
+        "viDef": "Một đối thủ hoặc kẻ thù trong một cuộc xung đột.",
+        "viExample": "Chiến binh đã đối mặt với kẻ thù lớn nhất của mình trong trận chiến cuối cùng.",
+        "cat": "war"
+      }
+    ],
+    "level2": [
+      {
+        "word": "Plan",
+        "def": "A detailed strategy or scheme for conducting military operations.",
+        "example": "The general devised a new plan to outmaneuver the enemy.",
+        "viDef": "Một chiến lược hoặc kế hoạch chi tiết để tiến hành các hoạt động quân sự.",
+        "viExample": "Người tướng đã nghĩ ra một kế hoạch mới để vượt mặt kẻ thù.",
+        "cat": "war"
+      },
+      {
+        "word": "Maneuvers",
+        "def": "Planned movements of troops or forces to gain a tactical advantage.",
+        "example": "The military maneuvers were designed to test the readiness of the troops.",
+        "viDef": "Các cuộc di chuyển có kế hoạch của quân đội hoặc lực lượng để giành lợi thế chiến thuật.",
+        "viExample": "Các cuộc cơ động quân sự được thiết kế để kiểm tra sự sẵn sàng của quân đội.",
+        "cat": "war"
+      },
+      {
+        "word": "Blockade",
+        "def": "Cutting off an enemy's access to resources or territory (synonymous with Easy Mode).",
+        "example": "The naval blockade prevented any ships from entering the harbor.",
+        "viDef": "Ngăn chặn kẻ thù tiếp cận tài nguyên hoặc lãnh thổ (đồng nghĩa với Chế độ Dễ).",
+        "viExample": "Sự phong tỏa hải quân đã ngăn bất kỳ con tàu nào vào cảng.",
+        "cat": "war"
+      },
+      {
+        "word": "Incursion",
+        "def": "A sudden, brief invasion or raid into enemy territory.",
+        "example": "The incursion was intended to disrupt enemy supply lines.",
+        "viDef": "Một cuộc xâm lược hoặc đột nhập đột ngột, ngắn ngủi vào lãnh thổ kẻ thù.",
+        "viExample": "Cuộc xâm nhập nhằm làm gián đoạn các tuyến tiếp tế của kẻ thù.",
+        "cat": "war"
+      },
+      {
+        "word": "Withdrawal",
+        "def": "Pulling back forces from a position, similar to retreat.",
+        "example": "The withdrawal of troops was completed without any casualties.",
+        "viDef": "Rút lực lượng khỏi một vị trí, tương tự như rút lui.",
+        "viExample": "Việc rút quân đã hoàn thành mà không có thương vong nào.",
+        "cat": "war"
+      },
+      {
+        "word": "Ceasefire",
+        "def": "Same as Level 1, emphasizing a pause in fighting.",
+        "example": "The ceasefire was broken within hours of being announced.",
+        "viDef": "Giống như Cấp độ 1, nhấn mạnh việc tạm dừng chiến đấu.",
+        "viExample": "Lệnh ngừng bắn đã bị phá vỡ trong vài giờ sau khi được công bố.",
+        "cat": "war"
+      },
+      {
+        "word": "Embargo",
+        "def": "A restriction, often economic, to weaken an enemy by limiting resources.",
+        "example": "The international community imposed an embargo on the aggressor nation.",
+        "viDef": "Một sự hạn chế, thường là kinh tế, để làm suy yếu kẻ thù bằng cách hạn chế tài nguyên.",
+        "viExample": "Cộng đồng quốc tế đã áp đặt lệnh cấm vận đối với quốc gia xâm lược.",
+        "cat": "war"
+      },
+      {
+        "word": "Spying",
+        "def": "Gathering intelligence covertly, synonymous with espionage.",
+        "example": "He was arrested for spying on behalf of a foreign government.",
+        "viDef": "Thu thập tình báo một cách bí mật, đồng nghĩa với hoạt động gián điệp.",
+        "viExample": "Anh ta đã bị bắt vì hoạt động gián điệp thay mặt chính phủ nước ngoài.",
+        "cat": "war"
+      },
+      {
+        "word": "Draft",
+        "def": "Compulsory recruitment for military service, synonymous with conscription.",
+        "example": "Many young men were drafted during the Vietnam War.",
+        "viDef": "Việc tuyển quân bắt buộc cho phục vụ quân sự, đồng nghĩa với việc nhập ngũ.",
+        "viExample": "Nhiều thanh niên đã bị tuyển quân trong Chiến tranh Việt Nam.",
+        "cat": "war"
+      },
+      {
+        "word": "Cessation",
+        "def": "A formal end to hostilities, often permanent.",
+        "example": "The cessation of hostilities was celebrated throughout the region.",
+        "viDef": "Một sự kết thúc chính thức các hành động thù địch, thường là vĩnh viễn.",
+        "viExample": "Sự chấm dứt các hành động thù địch đã được ăn mừng trên khắp khu vực.",
+        "cat": "war"
+      }
+    ],
+    "level3": [
+      {
+        "word": "Wearing down",
+        "def": "Reducing an enemy's strength through prolonged pressure, synonymous with attrition.",
+        "example": "The strategy of wearing down the enemy proved effective over time.",
+        "viDef": "Giảm sức mạnh của kẻ thù thông qua áp lực kéo dài, đồng nghĩa với sự hao mòn.",
+        "viExample": "Chiến lược làm suy yếu kẻ thù đã được chứng minh là hiệu quả theo thời gian.",
+        "cat": "war"
+      },
+      {
+        "word": "Lightning war",
+        "def": "A fast, intense military campaign, synonymous with blitzkrieg.",
+        "example": "The lightning war tactics allowed for rapid territorial gains.",
+        "viDef": "Một chiến dịch quân sự nhanh chóng, cường độ cao, đồng nghĩa với blitzkrieg.",
+        "viExample": "Chiến thuật chiến tranh chớp nhoáng cho phép giành được lãnh thổ nhanh chóng.",
+        "cat": "war"
+      },
+      {
+        "word": "Irregular",
+        "def": "Fighters using non-traditional tactics, like guerrilla warfare.",
+        "example": "Irregular forces posed a constant threat to the occupying army.",
+        "viDef": "Những người chiến đấu sử dụng các chiến thuật phi truyền thống, giống như chiến tranh du kích.",
+        "viExample": "Lực lượng không chính quy tạo ra một mối đe dọa liên tục đối với quân đội chiếm đóng.",
+        "cat": "war"
+      },
+      {
+        "word": "Rebellion",
+        "def": "An armed revolt against authority, similar to insurgency.",
+        "example": "The rebellion was crushed by government forces within weeks.",
+        "viDef": "Một cuộc nổi dậy vũ trang chống lại chính quyền, tương tự như cuộc nổi dậy.",
+        "viExample": "Cuộc nổi dậy đã bị đàn áp bởi lực lượng chính phủ trong vài tuần.",
+        "cat": "war"
+      },
+      {
+        "word": "Denial policy",
+        "def": "Destroying resources to prevent enemy use, akin to scorched earth.",
+        "example": "The denial policy left the invading army without supplies.",
+        "viDef": "Phá hủy tài nguyên để ngăn chặn kẻ thù sử dụng, tương tự như chính sách tiêu thổ kháng chiến.",
+        "viExample": "Chính sách từ chối đã để lại quân đội xâm lược không có nguồn cung ứng.",
+        "cat": "war"
+      },
+      {
+        "word": "All-out war",
+        "def": "A conflict mobilizing all resources, synonymous with total war.",
+        "example": "The nation prepared for all-out war as tensions escalated.",
+        "viDef": "Một cuộc xung đột huy động tất cả nguồn lực, đồng nghĩa với chiến tranh tổng lực.",
+        "viExample": "Quốc gia này đã chuẩn bị cho chiến tranh tổng lực khi căng thẳng leo thang.",
+        "cat": "war"
+      },
+      {
+        "word": "Indirect war",
+        "def": "A conflict fought through intermediaries, like proxy war.",
+        "example": "The superpowers often engaged in indirect war during the Cold War.",
+        "viDef": "Một cuộc xung đột được tiến hành thông qua người trung gian, giống như chiến tranh ủy nhiệm.",
+        "viExample": "Các cường quốc thường tham gia vào chiến tranh gián tiếp trong Chiến tranh Lạnh.",
+        "cat": "war"
+      },
+      {
+        "word": "Dissuasion",
+        "def": "Preventing aggression through fear of consequences, similar to deterrence.",
+        "example": "The policy of dissuasion was central to their national security strategy.",
+        "viDef": "Ngăn chặn sự xâm lược thông qua nỗi sợ hậu quả, tương tự như sự răn đe.",
+        "viExample": "Chính sách thuyết phục là trung tâm trong chiến lược an ninh quốc gia của họ.",
+        "cat": "war"
+      },
+      {
+        "word": "Nuclear stalemate",
+        "def": "A situation where nuclear powers avoid war due to mutual destruction risks.",
+        "example": "The nuclear stalemate between superpowers defined much of 20th-century geopolitics.",
+        "viDef": "Một tình huống mà ở đó các cường quốc hạt nhân tránh chiến tranh do rủi ro hủy diệt lẫn nhau.",
+        "viExample": "Sự bế tắc hạt nhân giữa các cường quốc đã định hình nhiều địa chính trị thế kỷ 20.",
+        "cat": "war"
+      },
+      {
+        "word": "Unconventional war",
+        "def": "Fighting using non-traditional methods, like asymmetric warfare.",
+        "example": "Modern militaries must adapt to the challenges of unconventional war.",
+        "viDef": "Chiến đấu sử dụng các phương pháp phi truyền thống, giống như chiến tranh bất cân xứng.",
+        "viExample": "Quân đội hiện đại phải thích ứng với những thách thức của chiến tranh phi truyền thống.",
+        "cat": "war"
+      }
+    ],
+    "finalBoss": [
+      {
+        "word": "Armistice",
+        "def": "An agreement made by opposing sides in a war to stop fighting for a certain time.",
+        "example": "The armistice was signed after months of negotiation.",
+        "viDef": "Một thỏa thuận được thực hiện bởi các bên đối lập trong một cuộc chiến để ngừng chiến đấu trong một khoảng thời gian nhất định.",
+        "viExample": "Hiệp định đình chiến đã được ký sau nhiều tháng đàm phán.",
+        "cat": "war"
+      },
+      {
+        "word": "Siege",
+        "def": "A military operation in which an enemy surrounds a town or building, cutting off essential supplies.",
+        "example": "The siege of the city lasted for nearly a year.",
+        "viDef": "Một hoạt động quân sự trong đó kẻ thù bao vây một thị trấn hoặc tòa nhà, cắt đứt nguồn cung cấp thiết yếu.",
+        "viExample":"Cuộc bao vây thành phố kéo dài gần một năm.",
+        "cat":"war"
+      },
+      {
+        "word": "Guerrilla",
+        "def": "A member of a small independent group taking part in irregular fighting, typically against larger regular forces.",
+        "example": "Guerrilla fighters used hit-and-run tactics.",
+        "viDef": "Một thành viên của một nhóm nhỏ độc lập tham gia vào các trận chiến không đều đặn, thường chống lại các lực lượng thường quy lớn hơn.",
+        "viExample": "Các chiến binh du kích đã sử dụng chiến thuật đánh và chạy.",
+        "cat": "war"
+      },
+      {
+        "word": "Reconnaissance",
+        "def": "Military observation of a region to locate an enemy or ascertain strategic features.",
+        "example": "The plane was on a reconnaissance mission.",
+        "viDef": "Quan sát quân sự một khu vực để định vị kẻ thù hoặc xác định các đặc điểm chiến lược.",
+        "viExample": "Chiếc máy bay đang thực hiện nhiệm vụ trinh sát.",
+        "cat": "war"
+      },
+      {
+        "word": "Battalion",
+        "def": "A large body of troops ready for battle, especially an infantry unit forming part of a brigade typically commanded by a lieutenant colonel.",
+        "example": "The battalion was sent to reinforce the front lines.",
+        "viDef": "Một lực lượng lớn quân đội sẵn sàng chiến đấu, đặc biệt là một đơn vị bộ binh hình thành một phần của một lữ đoàn thường được chỉ huy bởi một trung tá.",
+        "viExample": "Tiểu đoàn đã được gửi đến để tăng cường cho tiền tuyến.",
+        "cat": "war"
+      },
+      {
+        "word": "Deployment",
+        "def": "The movement of troops or equipment to a place or position for military action.",
+        "example": "The deployment of additional troops was approved.",
+        "viDef": "Sự di chuyển của quân đội hoặc thiết bị đến một nơi hoặc vị trí cho hành động quân sự.",
+        "viExample": "Việc triển khai thêm quân đội đã được phê duyệt.",
+        "cat": "war"
+      },
+      {
+        "word": "Wearing down",
+        "def": "Reducing an enemy's strength through prolonged pressure, synonymous with attrition.",
+        "example": "The strategy of wearing down the enemy proved effective over time.",
+        "viDef": "Giảm sức mạnh của kẻ thù thông qua áp lực kéo dài, đồng nghĩa với sự hao mòn.",
+        "viExample": "Chiến lược làm suy yếu kẻ thù đã được chứng minh là hiệu quả theo thời gian.",
+        "cat": "war"
+      },
+      {
+        "word": "Lightning war",
+        "def": "A fast, intense military campaign, synonymous with blitzkrieg.",
+        "example": "The lightning war tactics allowed for rapid territorial gains.",
+        "viDef": "Một chiến dịch quân sự nhanh chóng, cường độ cao, đồng nghĩa với blitzkrieg.",
+        "viExample": "Chiến thuật chiến tranh chớp nhoáng cho phép giành được lãnh thổ nhanh chóng.",
+        "cat": "war"
+      },
+      {
+        "word": "Rebellion",
+        "def": "An armed revolt against authority, similar to insurgency.",
+        "example": "The rebellion was crushed by government forces within weeks.",
+        "viDef": "Một cuộc nổi dậy vũ trang chống lại chính quyền, tương tự như cuộc nổi dậy.",
+        "viExample": "Cuộc nổi dậy đã bị đàn áp bởi lực lượng chính phủ trong vài tuần.",
+        "cat": "war"
+      },
+      {
+        "word": "Denial policy",
+        "def": "Destroying resources to prevent enemy use, akin to scorched earth.",
+        "example": "The denial policy left the invading army without supplies.",
+        "viDef": "Phá hủy tài nguyên để ngăn chặn kẻ thù sử dụng, tương tự như chính sách tiêu thổ kháng chiến.",
+        "viExample": "Chính sách từ chối đã để lại quân đội xâm lược không có nguồn cung ứng.",
+        "cat": "war"
+      },
+      {
+        "word": "All-out war",
+        "def": "A conflict mobilizing all resources, synonymous with total war.",
+        "example": "The nation prepared for all-out war as tensions escalated.",
+        "viDef": "Một cuộc xung đột huy động tất cả nguồn lực, đồng nghĩa với chiến tranh tổng lực.",
+        "viExample": "Quốc gia này đã chuẩn bị cho chiến tranh tổng lực khi căng thẳng leo thang.",
+        "cat": "war"
+      },
+      {
+        "word": "Unconventional war",
+        "def": "Fighting using non-traditional methods, like asymmetric warfare.",
+        "example": "Modern militaries must adapt to the challenges of unconventional war.",
+        "viDef": "Chiến đấu sử dụng các phương pháp phi truyền thống, giống như chiến tranh bất cân xứng.",
+        "viExample": "Quân đội hiện đại phải thích ứng với những thách thức của chiến tranh phi truyền thống.",
+        "cat": "war"
+      }
+    ]
+  }
+}
