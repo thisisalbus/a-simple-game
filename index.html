@@ -5,9 +5,24 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Word Battlefield — War Vocabulary Game</title>
   <style>
-    :root{--bg:#1a1f1a;--card:#0f130f;--accent:#8ac249;--accent2:#c19a6b;--muted:#a39b8d;--danger:#c0392b;--warning:#f39c12}
+    :root{
+      --bg:#1a1f1a;
+      --card:#374c37;
+      --sidebar:#605123;
+      --sidebar-btn:#2f727d;
+      --sidebar-btn-hover:#39b9be;
+      --accent:#8ac249;
+      --accent2:#c19a6b;
+      --muted:#a39b8d;
+      --danger:#c0392b;
+      --warning:#f39c12;
+      --success:#27ae60;
+      --combo:#9b59b6;
+      --question-bg:#3055a5;
+      --option-bg:#4293be;
+    }
     *{box-sizing:border-box;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#0d0d0d 0%, #1a1a1a 60%);color:#e6eef8}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#0d0d0d 0%, #1a1a1a 60%);color:#e6eef8;overflow-x:hidden}
     .container{max-width:1100px;margin:26px auto;padding:22px}
     header{display:flex;align-items:center;gap:18px}
     .logo{width:68px;height:68px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#04263b;font-size:26px;box-shadow:0 8px 30px rgba(6,12,24,.6)}
@@ -16,27 +31,58 @@
     .main{display:grid;grid-template-columns:340px 1fr;gap:18px;margin-top:18px}
 
     /* left panel */
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,.6)}
-    .menu button{display:block;width:100%;padding:12px;border-radius:10px;border:0;background:transparent;color:inherit;text-align:left;margin-bottom:8px;font-weight:600;cursor:pointer}
-    .menu button.active{background:rgba(255,255,255,0.03);box-shadow:inset 0 1px 0 rgba(255,255,255,0.02)}
+    .panel{background:var(--sidebar);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,.6)}
+    .menu button{display:block;width:100%;padding:12px;border-radius:10px;border:0;background:var(--sidebar-btn);color:inherit;text-align:left;margin-bottom:8px;font-weight:600;cursor:pointer;transition:all 0.2s}
+    .menu button:hover{background:var(--sidebar-btn-hover);transform:translateX(5px)}
+    .menu button.active{background:var(--accent);color:#000;box-shadow:0 4px 8px rgba(138,194,73,0.3)}
     .score{margin-top:12px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
     .score .big{font-size:28px;font-weight:800}
     .small{color:var(--muted);font-size:13px}
 
     /* right content */
     .content{min-height:420px;padding:18px;border-radius:12px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+    .card{background:var(--question-bg);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.05)}
     .controls{display:flex;gap:10px;align-items:center;margin-bottom:12px}
     .btn{background:linear-gradient(90deg,var(--accent2),var(--accent));padding:10px 14px;border-radius:10px;border:0;color:#04263b;font-weight:700;cursor:pointer}
-    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px 12px;border-radius:10px}
+    .btn:disabled{opacity:0.6;cursor:not-allowed}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.2);padding:10px 12px;border-radius:10px;color:var(--muted);transition:all 0.2s}
+    .ghost:hover{background:rgba(255,255,255,0.05);color:#fff}
 
     /* quiz */
     .question{font-size:20px;font-weight:700;margin:12px 0}
     .options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .option{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);cursor:pointer;border:1px solid transparent}
-    .option:hover{transform:translateY(-3px)}
+    .option{padding:12px;border-radius:10px;background:var(--option-bg);cursor:pointer;border:1px solid rgba(255,255,255,0.1);transition:all 0.2s}
+    .option:hover{transform:translateY(-3px);background:rgba(255,255,255,0.05)}
     .option.correct{outline:3px solid rgba(138,194,73,0.14);background:linear-gradient(90deg, rgba(138,194,73,0.04), rgba(193,154,107,0.02));}
     .option.wrong{outline:3px solid rgba(192,57,43,0.12);opacity:.9}
+
+    /* Visual feedback */
+    .feedback-message {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s;
+      text-align: center;
+    }
+    .feedback-correct {
+      background-color: var(--success);
+      color: white;
+    }
+    .feedback-wrong {
+      background-color: var(--danger);
+      color: white;
+    }
+    .feedback-combo {
+      background-color: var(--combo);
+      color: white;
+    }
 
     /* level progress */
     .level-progress{margin-top:15px}
@@ -59,6 +105,44 @@
     .badges{display:flex;gap:10px;margin-top:15px;flex-wrap:wrap}
     .badge{padding:5px 10px;background:var(--accent2);color:#000;border-radius:20px;font-size:12px;font-weight:bold}
     
+    /* combo counter */
+    .combo-counter {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--combo);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .combo-counter.active {
+      opacity: 1;
+    }
+    
+    /* difficulty selector */
+    .difficulty-selector {
+      margin-top: 15px;
+    }
+    .difficulty-btn {
+      padding: 5px 10px;
+      margin-right: 5px;
+      border-radius: 5px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: inherit;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+    .difficulty-btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .difficulty-btn.active {
+      background: var(--accent);
+      color: #000;
+    }
+    
     /* game over modal */
     .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center}
     .modal-content{background:var(--card);padding:25px;border-radius:12px;max-width:500px;width:90%;box-shadow:0 10px 30px rgba(0,0,0,0.5);text-align:center}
@@ -66,8 +150,91 @@
     .modal-body{margin-bottom:20px}
     .modal-buttons{display:flex;gap:10px;justify-content:center}
 
+    /* Army visualization */
+    .army-container {
+      height: 40px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.2);
+      border-radius: 8px;
+      padding: 5px;
+      position: relative;
+      overflow: hidden;
+    }
+    .army-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(138,194,73,0.1), transparent);
+      animation: shimmer 2s infinite;
+    }
+    .soldier {
+      position: relative;
+      font-size: 24px;
+      margin: 0 2px;
+      z-index: 1;
+    }
+    
+    /* Action buttons in sidebar */
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+    .action-buttons .ghost {
+      flex: 1;
+      padding: 8px;
+      font-size: 12px;
+      text-align: center;
+    }
+    
+    /* Loading indicator */
+    .loading-indicator {
+      display: none;
+      text-align: center;
+      padding: 10px;
+      color: var(--muted);
+    }
+    .loading-indicator.active {
+      display: block;
+    }
+
     /* responsive */
     @media(max-width:900px){.main{grid-template-columns:1fr;}.logo{width:58px;height:58px}}
+    
+    /* Animations */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .shake {
+      animation: shake 0.5s;
+    }
+    .pulse {
+      animation: pulse 0.5s;
+    }
+    .fade-in {
+      animation: fadeIn 0.5s;
+    }
   </style>
 </head>
 <body>
@@ -89,6 +256,11 @@
 
     <div class="main">
       <aside class="panel">
+        <div class="action-buttons">
+          <button id="btn-reset" class="ghost">Reset Game</button>
+          <button id="btn-help" class="ghost">How to Play</button>
+        </div>
+        
         <div class="menu">
           <button id="btn-battle" class="active">⚔️ Battle</button>
           <button id="btn-barracks">🏰 Barracks</button>
@@ -136,18 +308,24 @@
           <div class="badge" style="background:#555">No Badges Yet</div>
         </div>
 
-        <div style="margin-top:12px;display:flex;gap:8px;">
-          <button id="btn-reset" class="ghost">Reset Game</button>
-          <button id="btn-help" class="ghost">How to Play</button>
+        <div class="difficulty-selector">
+          <div class="small">Vocabulary Set:</div>
+          <button class="difficulty-btn active" data-diff="easy">Basic Terms</button>
+          <button class="difficulty-btn" data-diff="medium">Advanced Terms</button>
+          <button class="difficulty-btn" data-diff="hard">Expert Terms</button>
         </div>
       </aside>
 
       <section class="content">
         <div id="view-battle" class="card">
+          <div class="army-container" id="armyContainer"></div>
+          
           <div class="controls">
             <button id="nextBattle" class="btn">Start Battle</button>
             <div style="margin-left:auto" class="small">Timer: <span id="timer">--</span></div>
           </div>
+          
+          <div class="combo-counter" id="comboCounter">Combo: x<span id="comboValue">0</span></div>
           <div id="battleArea">
             <div class="question" id="questionText">Press "Start Battle" to begin your first mission!</div>
             <div class="options" id="options"></div>
@@ -165,7 +343,7 @@
         </div>
 
         <div id="view-edit" class="card" style="margin-top:12px;display:none">
-          <div class="small">Edit the vocabulary list (JSON). Structure: {"level1":[...], "level2":[...], "level3":[...], "finalBoss":[...]}</div>
+          <div class="small">Edit the vocabulary list (JSON). Structure: {"easy": {...}, "medium": {...}, "hard": {...}}</div>
           <textarea id="vocabJson" style="width:100%;height:260px;margin-top:8px;border-radius:8px;padding:10px;background:#031524;color:#ccdef7;border:1px solid rgba(255,255,255,0.03);"></textarea>
           <div style="display:flex;gap:8px;margin-top:8px">
             <button id="saveVocab" class="btn">Save</button>
@@ -178,6 +356,9 @@
 
     <footer id="footer">Build your vocabulary army to conquer the battlefield! Complete all missions to become a Word Commander.</footer>
   </div>
+
+  <!-- Feedback Message -->
+  <div id="feedbackMessage" class="feedback-message"></div>
 
   <!-- Game Over Modal -->
   <div id="gameOverModal" class="modal">
@@ -219,17 +400,21 @@ How to Play:
 2. Each battle presents a war-related vocabulary word.
 3. Choose the correct definition from 4 options.
 4. Correct answers strengthen your army (+10 strength).
-5. Wrong answers reduce your health (-5 health).
+5. Wrong answers reduce your health (-5 health) and army strength (-3).
 6. Complete each level by answering the required number of questions correctly.
 7. Earn badges for completing missions: The Strategist, The Commander, The Conqueror.
-8. Defeat the Final Boss to win the game!
+8. Build combos for consecutive correct answers to earn bonus points.
+9. Defeat the Final Boss to win the game!
 
 Game Over: If your health reaches 0, your army is defeated.
 
 Good luck, Commander!`,
     scoring: `Scoring System:
 • Correct answer: +10 Army Strength
-• Wrong answer: -5 Health
+• Wrong answer: -5 Health, -3 Army Strength
+• Combo x2: +5 Bonus Strength
+• Combo x3: +10 Bonus Strength
+• Combo x5+: +15 Bonus Strength
 • Level 1: Complete 5 correct answers
 • Level 2: Complete 7 correct answers
 • Level 3: Complete 10 correct answers
@@ -248,7 +433,20 @@ Good luck, Commander!`,
     noBadges: "No Badges Yet",
     barracksEmpty: "Complete battles to unlock words in your barracks.",
     startBattle: "Start Battle",
-    pressStart: "Press \"Start Battle\" to begin your first mission!"
+    continueBattle: "Continue",
+    pressStart: "Press \"Start Battle\" to begin your first mission!",
+    correct: "Correct!",
+    wrong: "Wrong!",
+    combo2: "Combo x2!",
+    combo3: "Combo x3!",
+    combo5: "Amazing Combo!",
+    basic: "Basic Terms",
+    advanced: "Advanced Terms",
+    expert: "Expert Terms",
+    vocabSet: "Vocabulary Set:",
+    loading: "Loading vocabulary...",
+    vocabError: "Error loading vocabulary. Using default set.",
+    noVocab: "No vocabulary available for this level."
   },
   vi: {
     battle:'⚔️ Trận chiến', barracks:'🏰 Doanh trại', edit:'✏️ Chỉnh sửa từ',
@@ -260,17 +458,21 @@ Cách chơi:
 2. Mỗi trận chiến đưa ra một từ vựng liên quan đến chiến tranh.
 3. Chọn định nghĩa đúng từ 4 lựa chọn.
 4. Trả lời đúng làm đội quân của bạn mạnh hơn (+10 sức mạnh).
-5. Trả lời sai làm giảm máu của bạn (-5 máu).
+5. Trả lời sai làm giảm máu của bạn (-5 máu) và sức mạnh đội quân (-3).
 6. Hoàn thành mỗi cấp độ bằng cách trả lời đúng số câu hỏi cần thiết.
 7. Nhận huy hiệu khi hoàn thành nhiệm vụ: Nhà chiến lược, Chỉ huy, Người chinh phục.
-8. Đánh bại Trùm cuối để thắng trò chơi!
+8. Xây dựng combo cho các câu trả lời đúng liên tiếp để nhận điểm thưởng.
+9. Đánh bại Trùm cuối để thắng trò chơi!
 
 Trò chơi kết thúc: Nếu máu của bạn về 0, đội quân của bạn bị đánh bại.
 
 Chúc may mắn, Chỉ huy!`,
     scoring: `Hệ thống tính điểm:
 • Trả lời đúng: +10 Sức mạnh đội quân
-• Trả lời sai: -5 Máu
+• Trả lời sai: -5 Máu, -3 Sức mạnh đội quân
+• Combo x2: +5 Điểm thưởng sức mạnh
+• Combo x3: +10 Điểm thưởng sức mạnh
+• Combo x5+: +15 Điểm thưởng sức mạnh
 • Cấp độ 1: Hoàn thành 5 câu trả lời đúng
 • Cấp độ 2: Hoàn thành 7 câu trả lời đúng
 • Cấp độ 3: Hoàn thành 10 câu trả lời đúng
@@ -289,78 +491,196 @@ Chúc may mắn, Chỉ huy!`,
     noBadges: "Chưa có huy hiệu",
     barracksEmpty: "Hoàn thành các trận chiến để mở khóa từ vựng trong doanh trại.",
     startBattle: "Bắt đầu trận chiến",
-    pressStart: "Nhấn \"Bắt đầu trận chiến\" để bắt đầu nhiệm vụ đầu tiên của bạn!"
+    continueBattle: "Tiếp tục",
+    pressStart: "Nhấn \"Bắt đầu trận chiến\" để bắt đầu nhiệm vụ đầu tiên của bạn!",
+    correct: "Đúng!",
+    wrong: "Sai!",
+    combo2: "Combo x2!",
+    combo3: "Combo x3!",
+    combo5: "Combo tuyệt vời!",
+    basic: "Thuật ngữ Cơ bản",
+    advanced: "Thuật ngữ Nâng cao",
+    expert: "Thuật ngữ Chuyên gia",
+    vocabSet: "Bộ từ vựng:",
+    loading: "Đang tải từ vựng...",
+    vocabError: "Lỗi tải từ vựng. Sử dụng bộ từ mặc định.",
+    noVocab: "Không có từ vựng cho cấp độ này."
   }
 };
 function t(k){return STRINGS[LANG][k]||k}
 
-/* ===== vocabulary (default) ===== */
-let defaultVocab = {
-  level1: [
-    {word:"soldier",def:"A person who serves in an army.",example:"The soldier fought bravely in the battle.",viDef:"Người phục vụ trong quân đội.",viExample:"Người lính đã chiến đấu dũng cảm trong trận đánh.",cat:"war"},
-    {word:"army",def:"An organized military force equipped for fighting.",example:"The army marched toward the enemy territory.",viDef:"Lực lượng quân sự có tổ chức được trang bị để chiến đấu.",viExample:"Quân đội đã hành quân về phía lãnh thổ kẻ thù.",cat:"war"},
-    {word:"weapon",def:"A thing designed or used for inflicting bodily harm or physical damage.",example:"Soldiers carry weapons for protection.",viDef:"Vật được thiết kế hoặc sử dụng để gây ra tổn thương thể chất hoặc thiệt hại vật chất.",viExample:"Người lính mang vũ khí để tự vệ.",cat:"war"},
-    {word:"shield",def:"A broad piece of metal or another material held by soldiers to protect the body from weapons.",example:"The knight raised his shield to block the attack.",viDef:"Một mảnh kim loại rộng hoặc vật liệu khác được người lính cầm để bảo vệ cơ thể khỏi vũ khí.",viExample:"Hiệp sĩ đã khiên của mình lên để chặn đòn tấn công.",cat:"war"},
-    {word:"enemy",def:"A person or group that is actively opposed or hostile to someone or something.",example:"The enemy troops were approaching from the north.",viDef:"Một người hoặc nhóm tích cực phản đối hoặc thù địch với ai đó hoặc điều gì đó.",viExample:"Quân đội kẻ thù đang tiếp cận từ phía bắc.",cat:"war"},
-    {word:"fight",def:"Take part in a violent struggle involving the exchange of physical blows or the use of weapons.",example:"The soldiers began to fight when they saw the enemy.",viDef:"Tham gia vào một cuộc đấu tranh bạo lực liên quan đến việc trao đổi đòn tấn công vật lý hoặc sử dụng vũ khí.",viExample:"Những người lính bắt đầu chiến đấu khi họ thấy kẻ thù.",cat:"war"},
-    {word:"battle",def:"A sustained fight between large organized armed forces.",example:"The battle lasted for three days.",viDef:"Cuộc chiến đấu kéo dài giữa các lực lượng vũ trang lớn có tổ chức.",viExample:"Trận đánh kéo dài trong ba ngày.",cat:"war"},
-    {word:"troops",def:"Soldiers or armed forces.",example:"The troops were deployed to the conflict zone.",viDef:"Những người lính hoặc lực lượng vũ trang.",viExample:"Các quân đội đã được triển khai đến khu vực xung đột.",cat:"war"}
-  ],
-  level2: [
-    {word:"strategy",def:"A plan of action designed to achieve a long-term or overall aim.",example:"The general developed a new strategy to win the war.",viDef:"Một kế hoạch hành động được thiết kế để đạt được mục tiêu dài hạn hoặc tổng thể.",viExample:"Tướng đã phát triển một chiến lược mới để thắng cuộc chiến.",cat:"war"},
-    {word:"commander",def:"A person in authority, especially in a military context.",example:"The commander gave orders to advance.",viDef:"Người có quyền lực, đặc biệt trong bối cảnh quân sự.",viExample:"Chỉ huy đã ra lệnh tiến công.",cat:"war"},
-    {word:"ally",def:"A state or person cooperating with another for a military or other purpose.",example:"The two countries were allies in the war.",viDef:"Một quốc gia hoặc người hợp tác với một người khác cho mục đích quân sự hoặc khác.",viExample:"Hai quốc gia là đồng minh trong cuộc chiến.",cat:"war"},
-    {word:"invade",def:"Enter (a country or territory) with armed forces in order to attack, damage, or occupy it.",example:"The army prepared to invade the neighboring country.",viDef:"Nhập vào (một quốc gia hoặc lãnh thổ) với lực lượng vũ trang để tấn công, gây thiệt hại, hoặc chiếm đóng nó.",viExample:"Quân đội đã chuẩn bị để xâm lược quốc gia láng giềng.",cat:"war"},
-    {word:"defend",def:"Protect from harm or danger; resist attack.",example:"The soldiers had to defend the fortress.",viDef:"Bảo vệ khỏi tổn hại hoặc nguy hiểm; kháng cự sự tấn công.",viExample:"Những người lính phải bảo vệ pháo đài.",cat:"war"},
-    {word:"surrender",def:"Cease resistance to an enemy or opponent and submit to their authority.",example:"The troops were forced to surrender.",viDef:"Ngừng kháng cự kẻ thù hoặc đối thủ và chịu sự kiểm soát của họ.",viExample:"Các quân đội đã buộc phải đầu hàng.",cat:"war"},
-    {word:"retreat",def:"Withdraw from enemy forces as a result of their superior power or after a defeat.",example:"The army had to retreat after losing the battle.",viDef:"Rút lui khỏi lực lượng kẻ thù do sức mạnh vượt trội của họ hoặc sau một thất bại.",viExample:"Quân đội đã phải rút lui sau khi thua trận.",cat:"war"},
-    {word:"victory",def:"An act of defeating an enemy or opponent.",example:"The celebration lasted for days after the victory.",viDef:"Hành động đánh bại kẻ thù hoặc đối thủ.",viExample:"Lễ kỷ niệm kéo dài nhiều ngày sau chiến thắng.",cat:"war"},
-    {word:"defeat",def:"Win against (an enemy or opponent) in a battle or other contest.",example:"The army was determined to defeat its enemies.",viDef:"Thắng (kẻ thù hoặc đối thủ) trong một trận chiến hoặc cuộc thi khác.",viExample:"Quân đội quyết tâm đánh bại kẻ thù của mình.",cat:"war"},
-    {word:"combat",def:"Fighting between armed forces.",example:"The soldiers were engaged in combat.",viDef:"Cuộc chiến đấu giữa các lực lượng vũ trang.",viExample:"Những người lính đang tham gia chiến đấu.",cat:"war"}
-  ],
-  level3: [
-    {word:"conflict",def:"A serious disagreement or argument, typically a protracted one.",example:"The conflict between the two nations lasted for decades.",viDef:"Một bất đồng hoặc tranh cãi nghiêm trọng, thường là kéo dài.",viExample:"Xung đột giữa hai quốc gia kéo dài trong nhiều thập kỷ.",cat:"war"},
-    {word:"negotiate",def:"Discuss something with someone in order to reach an agreement.",example:"The leaders met to negotiate a peace treaty.",viDef:"Thảo luận điều gì đó với ai đó để đạt được thỏa thuận.",viExample:"Các nhà lãnh đạo đã gặp nhau để đàm phán một hiệp ước hòa bình.",cat:"war"},
-    {word:"treaty",def:"A formally concluded and ratified agreement between states.",example:"The two countries signed a peace treaty.",viDef:"Một thỏa thuận được kết luận và phê chuẩn chính thức giữa các quốc gia.",viExample:"Hai quốc gia đã ký một hiệp ước hòa bình.",cat:"war"},
-    {word:"occupy",def:"Take control of (a place, especially a country) by military force.",example:"The invading army began to occupy the city.",viDef:"Nắm quyền kiểm soát (một nơi, đặc biệt là một quốc gia) bằng lực lượng quân sự.",viExample:"Quân đội xâm lược bắt đầu chiếm đóng thành phố.",cat:"war"},
-    {word:"revolution",def:"A forcible overthrow of a government or social order in favor of a new system.",example:"The revolution brought about significant changes.",viDef:"Sự lật đổ bằng vũ lực của một chính phủ hoặc trật tự xã hội để ủng hộ một hệ thống mới.",viExample:"Cuộc cách mạng đã mang lại những thay đổi đáng kể.",cat:"war"},
-    {word:"resistance",def:"The refusal to accept or comply with something; the attempt to prevent something by action or argument.",example:"The resistance movement fought against the occupation.",viDef:"Sự từ chối chấp nhận hoặc tuân theo điều gì đó; nỗ lực ngăn chặn điều gì đó bằng hành động hoặc lập luận.",viExample:"Phong trào kháng chiến đã chiến đấu chống lại sự chiếm đóng.",cat:"war"},
-    {word:"casualty",def:"A person killed or injured in a war or accident.",example:"There were many casualties in the battle.",viDef:"Một người bị giết hoặc bị thương trong chiến tranh hoặc tai nạn.",viExample:"Có nhiều thương vong trong trận đánh.",cat:"war"},
-    {word:"ammunition",def:"A supply or quantity of bullets and shells.",example:"The troops were running low on ammunition.",viDef:"Một nguồn cung hoặc số lượng đạn và vỏ đạn.",viExample:"Các quân đội đang cạn kiệt đạn dược.",cat:"war"},
-    {word:"artillery",def:"Large-caliber guns used in warfare on land.",example:"The artillery bombarded the enemy positions.",viDef:"Súng cỡ lớn được sử dụng trong chiến tranh trên bộ.",viExample:"Pháo binh đã bắn phá các vị trí của kẻ thù.",cat:"war"},
-    {word:"ceasefire",def:"A temporary suspension of fighting.",example:"The ceasefire allowed civilians to leave the city.",viDef:"Một sự đình chỉ chiến đấu tạm thời.",viExample:"Lệnh ngừng bắn đã cho phép dân thường rời thành phố.",cat:"war"}
-  ],
-  finalBoss: [
-    {word:"armistice",def:"An agreement made by opposing sides in a war to stop fighting for a certain time.",example:"The armistice was signed after months of negotiation.",viDef:"Một thỏa thuận được thực hiện bởi các bên đối lập trong một cuộc chiến để ngừng chiến đấu trong một khoảng thời gian nhất định.",viExample:"Hiệp định đình chiến đã được ký sau nhiều tháng đàm phán.",cat:"war"},
-    {word:"siege",def:"A military operation in which an enemy surrounds a town or building, cutting off essential supplies.",example:"The siege of the city lasted for nearly a year.",viDef:"Một hoạt động quân sự trong đó kẻ thù bao vây một thị trấn hoặc tòa nhà, cắt đứt nguồn cung cấp thiết yếu.",viExample:"Cuộc bao vây thành phố kéo dài gần một năm.",cat:"war"},
-    {word:"guerrilla",def:"A member of a small independent group taking part in irregular fighting, typically against larger regular forces.",example:"Guerrilla fighters used hit-and-run tactics.",viDef:"Một thành viên của một nhóm nhỏ độc lập tham gia vào các trận chiến không đều đặn, thường chống lại các lực lượng thường quy lớn hơn.",viExample:"Các chiến binh du kích đã sử dụng chiến thuật đánh và chạy.",cat:"war"},
-    {word:"reconnaissance",def:"Military observation of a region to locate an enemy or ascertain strategic features.",example:"The plane was on a reconnaissance mission.",viDef:"Quan sát quân sự một khu vực để định vị kẻ thù hoặc xác định các đặc điểm chiến lược.",viExample:"Chiếc máy bay đang thực hiện nhiệm vụ trinh sát.",cat:"war"},
-    {word:"battalion",def:"A large body of troops ready for battle, especially an infantry unit forming part of a brigade typically commanded by a lieutenant colonel.",example:"The battalion was sent to reinforce the front lines.",viDef:"Một lực lượng lớn quân đội sẵn sàng chiến đấu, đặc biệt là một đơn vị bộ binh hình thành một phần của một lữ đoàn thường được chỉ huy bởi một trung tá.",viExample:"Tiểu đoàn đã được gửi đến để tăng cường cho tiền tuyến.",cat:"war"},
-    {word:"deployment",def:"The movement of troops or equipment to a place or position for military action.",example:"The deployment of additional troops was approved.",viDef:"Sự di chuyển của quân đội hoặc thiết bị đến một nơi hoặc vị trí cho hành động quân sự.",viExample:"Việc triển khai thêm quân đội đã được phê duyệt.",cat:"war"},
-    {word:"armistice",def:"An agreement made by opposing sides in a war to stop fighting for a certain time.",example:"The armistice was signed after months of negotiation.",viDef:"Một thỏa thuận được thực hiện bởi các bên đối lập trong một cuộc chiến để ngừng chiến đấu trong một khoảng thời gian nhất định.",viExample:"Hiệp định đình chiến đã được ký sau nhiều tháng đàm phán.",cat:"war"},
-    {word:"siege",def:"A military operation in which an enemy surrounds a town or building, cutting off essential supplies.",example:"The siege of the city lasted for nearly a year.",viDef:"Một hoạt động quân sự trong đó kẻ thù bao vây một thị trấn hoặc tòa nhà, cắt đứt nguồn cung cấp thiết yếu.",viExample:"Cuộc bao vây thành phố kéo dài gần một năm.",cat:"war"},
-    {word:"guerrilla",def:"A member of a small independent group taking part in irregular fighting, typically against larger regular forces.",example:"Guerrilla fighters used hit-and-run tactics.",viDef:"Một thành viên của một nhóm nhỏ độc lập tham gia vào các trận chiến không đều đặn, thường chống lại các lực lượng thường quy lớn hơn.",viExample:"Các chiến binh du kích đã sử dụng chiến thuật đánh và chạy.",cat:"war"},
-    {word:"reconnaissance",def:"Military observation of a region to locate an enemy or ascertain strategic features.",example:"The plane was on a reconnaissance mission.",viDef:"Quan sát quân sự một khu vực để định vị kẻ thù hoặc xác định các đặc điểm chiến lược.",viExample:"Chiếc máy bay đang thực hiện nhiệm vụ trinh sát.",cat:"war"},
-    {word:"battalion",def:"A large body of troops ready for battle, especially an infantry unit forming part of a brigade typically commanded by a lieutenant colonel.",example:"The battalion was sent to reinforce the front lines.",viDef:"Một lực lượng lớn quân đội sẵn sàng chiến đấu, đặc biệt là một đơn vị bộ binh hình thành một phần của một lữ đoàn thường được chỉ huy bởi một trung tá.",viExample:"Tiểu đoàn đã được gửi đến để tăng cường cho tiền tuyến.",cat:"war"},
-    {word:"deployment",def:"The movement of troops or equipment to a place or position for military action.",example:"The deployment of additional troops was approved.",viDef:"Sự di chuyển của quân đội hoặc thiết bị đến một nơi hoặc vị trí cho hành động quân sự.",viExample:"Việc triển khai thêm quân đội đã được phê duyệt.",cat:"war"}
-  ]
-};
+/* ===== vocabulary loading ===== */
+let vocab = null;
+let vocabLoaded = false;
+let vocabLoadingPromise = null;
+
+async function loadVocabulary() {
+  // If already loaded, return immediately
+  if (vocabLoaded) {
+    return;
+  }
+  
+  // If loading is in progress, return the existing promise
+  if (vocabLoadingPromise) {
+    return vocabLoadingPromise;
+  }
+  
+  // Start loading
+  vocabLoadingPromise = (async () => {
+    try {
+      // Show loading indicator
+      const loadingIndicator = document.getElementById('loadingIndicator');
+      if (loadingIndicator) {
+        loadingIndicator.classList.add('active');
+      }
+      
+      // Try to load from localStorage first
+      const localVocab = localStorage.getItem('wb_vocab');
+      if (localVocab) {
+        try {
+          vocab = JSON.parse(localVocab);
+          vocabLoaded = true;
+          if (loadingIndicator) {
+            loadingIndicator.classList.remove('active');
+          }
+          return;
+        } catch (e) {
+          console.error('Error parsing local vocabulary:', e);
+        }
+      }
+      
+      // If not in localStorage or parsing failed, fetch from the JSON file
+      const response = await fetch('vocabulary.json');
+      if (!response.ok) {
+        throw new Error('Failed to load vocabulary file');
+      }
+      vocab = await response.json();
+      
+      // Save to localStorage for future use
+      localStorage.setItem('wb_vocab', JSON.stringify(vocab));
+      vocabLoaded = true;
+      
+      if (loadingIndicator) {
+        loadingIndicator.classList.remove('active');
+      }
+    } catch (error) {
+      console.error('Error loading vocabulary:', error);
+      
+      // Fallback to a minimal vocabulary set
+      vocab = {
+        easy: {
+          level1: [
+            {word:"War",def:"A state of armed conflict.",example:"The war lasted for years.",viDef:"Trạng thái xung đột vũ trang.",viExample:"Cuộc chiến kéo dài nhiều năm.",cat:"war"},
+            {word:"Soldier",def:"A person serving in an army.",example:"The soldier was awarded a medal.",viDef:"Người phục vụ trong quân đội.",viExample:"Người lính đã được trao huy chương.",cat:"war"},
+            {word:"Battle",def:"A specific fight within a larger war.",example:"The battle was fierce.",viDef:"Một cuộc chiến đấu cụ thể trong một cuộc chiến tranh lớn hơn.",viExample:"Trận chiến đã khốc liệt.",cat:"war"},
+            {word:"Army",def:"A large organized group of soldiers.",example:"The army marched to the front.",viDef:"Một nhóm lớn có tổ chức của những người lính.",viExample:"Quân đội đã hành quân ra tiền tuyến.",cat:"war"},
+            {word:"Weapon",def:"A tool used for fighting.",example:"Soldiers carry weapons.",viDef:"Một công cụ được sử dụng để chiến đấu.",viExample:"Người lính mang vũ khí.",cat:"war"}
+          ],
+          level2: [
+            {word:"Strategy",def:"A plan for achieving victory.",example:"The strategy worked well.",viDef:"Một kế hoạch để đạt được chiến thắng.",viExample:"Chiến lược đã hoạt động tốt.",cat:"war"},
+            {word:"Tactics",def:"Specific techniques in battles.",example:"The tactics surprised the enemy.",viDef:"Các kỹ thuật cụ thể trong trận chiến.",viExample:"Chiến thuật đã làm bất ngờ kẻ thù.",cat:"war"},
+            {word:"Siege",def:"Surrounding a place to force surrender.",example:"The siege lasted months.",viDef:"Bao vây một nơi để buộc đầu hàng.",viExample:"Cuộc bao vây kéo dài nhiều tháng.",cat:"war"},
+            {word:"Invasion",def:"Entering territory with military force.",example:"The invasion began at dawn.",viDef:"Nhập vào lãnh thổ với lực lượng quân sự.",viExample:"Cuộc xâm lược bắt đầu vào bình minh.",cat:"war"},
+            {word:"Retreat",def:"Withdrawing from battle.",example:"The troops were ordered to retreat.",viDef:"Rút lui khỏi trận chiến.",viExample:"Quân đội được lệnh rút lui.",cat:"war"}
+          ],
+          level3: [
+            {word:"Attrition",def:"Wearing down the enemy over time.",example:"The war of attrition was costly.",viDef:"Làm suy yếu kẻ thù theo thời gian.",viExample:"Cuộc chiến tranh hao mòn rất tốn kém.",cat:"war"},
+            {word:"Blitzkrieg",def:"A rapid overwhelming attack strategy.",example:"The blitzkrieg tactic was effective.",viDef:"Một chiến lược tấn công nhanh chóng áp đảo.",viExample:"Chiến thuật blitzkrieg đã hiệu quả.",cat:"war"},
+            {word:"Guerrilla",def:"Irregular warfare using small groups.",example:"Guerrilla fighters used hit-and-run tactics.",viDef:"Chiến tranh không đều đặn sử dụng các nhóm nhỏ.",viExample:"Các chiến binh du kích đã sử dụng chiến thuật đánh và chạy.",cat:"war"},
+            {word:"Insurgency",def:"An organized rebellion against authority.",example:"The insurgency grew stronger.",viDef:"Một cuộc nổi dậy có tổ chức chống lại chính quyền.",viExample:"Cuộc nổi dậy ngày càng mạnh hơn.",cat:"war"},
+            {word:"Total war",def:"A war involving all societal resources.",example:"World War II was a total war.",viDef:"Một cuộc chiến tranh liên quan đến tất cả nguồn lực xã hội.",viExample:"Thế chiến II là một cuộc chiến tranh tổng lực.",cat:"war"}
+          ],
+          finalBoss: [
+            {word:"Armistice",def:"An agreement to stop fighting.",example:"The armistice ended the war.",viDef:"Một thỏa thuận để ngừng chiến đấu.",viExample:"Hiệp định đình chiến đã kết thúc cuộc chiến.",cat:"war"},
+            {word:"Siege",def:"A military operation surrounding a place.",example:"The siege of the city lasted a year.",viDef:"Một hoạt động quân sự bao vây một nơi.",viExample:"Cuộc bao vây thành phố kéo dài một năm.",cat:"war"},
+            {word:"Guerrilla",def:"A member of an irregular fighting group.",example:"Guerrilla fighters used hit-and-run tactics.",viDef:"Một thành viên của một nhóm chiến đấu không chính quy.",viExample:"Các chiến binh du kích đã sử dụng chiến thuật đánh và chạy.",cat:"war"},
+            {word:"Reconnaissance",def:"Military observation of a region.",example:"The plane was on a reconnaissance mission.",viDef:"Quan sát quân sự một khu vực.",viExample:"Chiếc máy bay đang thực hiện nhiệm vụ trinh sát.",cat:"war"},
+            {word:"Battalion",def:"A large body of troops ready for battle.",example:"The battalion was sent to reinforce.",viDef:"Một lực lượng lớn quân đội sẵn sàng chiến đấu.",viExample:"Tiểu đoàn đã được gửi đến để tăng cường.",cat:"war"}
+          ]
+        },
+        medium: {
+          level1: [
+            {word:"Conflict",def:"A struggle or fight between groups.",example:"The conflict was resolved peacefully.",viDef:"Một cuộc đấu tranh hoặc chiến đấu giữa các nhóm.",viExample:"Cuộc xung đột đã được giải quyết một cách hòa bình.",cat:"war"},
+            {word:"Combatant",def:"A person engaged in fighting.",example:"The combatants were heavily armed.",viDef:"Một người tham gia vào chiến đấu.",viExample:"Những người tham chiến được trang bị vũ khí hạng nặng.",cat:"war"},
+            {word:"Engagement",def:"A military encounter.",example:"The engagement was brief but intense.",viDef:"Một cuộc chạm trán quân sự.",viExample:"Cuộc chạm trán ngắn ngủi nhưng mãnh liệt.",cat:"war"},
+            {word:"Forces",def:"Organized military units.",example:"The forces were deployed to the region.",viDef:"Các đơn vị quân sự có tổ chức.",viExample:"Các lực lượng đã được triển khai đến khu vực.",cat:"war"},
+            {word:"Ordnance",def:"Military weapons and ammunition.",example:"The ordnance depot was destroyed.",viDef:"Vũ khí và đạn dược quân sự.",viExample:"Kho vũ khí đã bị phá hủy.",cat:"war"}
+          ],
+          level2: [
+            {word:"Stratagem",def:"A clever plan to deceive the enemy.",example:"The stratagem worked perfectly.",viDef:"Một kế hoạch thông minh để lừa gạt kẻ thù.",viExample:"Mưu kế đã hoạt động hoàn hảo.",cat:"war"},
+            {word:"Ploys",def:"Tactical tricks to gain advantage.",example:"The commander used several ploys.",viDef:"Những mánh khóe chiến thuật để giành lợi thế.",viExample:"Người chỉ huy đã sử dụng một số mánh khóe.",cat:"war"},
+            {word:"Beleaguerment",def:"Surrounding a fortified position.",example:"The beleaguerment lasted for months.",viDef:"Bao vây một vị trí được củng cố.",viExample:"Cuộc bao vây đã kéo dài nhiều tháng.",cat:"war"},
+            {word:"Irruption",def:"A sudden violent invasion.",example:"The irruption caught them by surprise.",viDef:"Một cuộc xâm lược đột ngột bạo lực.",viExample:"Cuộc xâm nhập đột ngột đã khiến họ bất ngờ.",cat:"war"},
+            {word:"Pullback",def:"Withdrawing forces strategically.",example:"The pullback was carefully planned.",viDef:"Rút lực lượng một cách chiến lược.",viExample:"Việc rút lui được lên kế hoạch cẩn thận.",cat:"war"}
+          ],
+          level3: [
+            {word:"Erosion",def:"Gradual weakening of strength.",example:"The erosion of support was evident.",viDef:"Sự suy yếu dần dần của sức mạnh.",viExample:"Sự xói mòn sự ủng hộ là rõ ràng.",cat:"war"},
+            {word:"Rapid dominance",def:"Overwhelming an enemy quickly.",example:"The strategy of rapid dominance succeeded.",viDef:"Áp đảo kẻ thù một cách nhanh chóng.",viExample:"Chiến lược thống trị nhanh chóng đã thành công.",cat:"war"},
+            {word:"Partisan",def:"A member of a resistance group.",example:"Partisans operated behind enemy lines.",viDef:"Một thành viên của một nhóm kháng chiến.",viExample:"Các du kích quân hoạt động phía sau chiến tuyến của kẻ thù.",cat:"war"},
+            {word:"Uprising",def:"An armed revolt against authority.",example:"The uprising was brutally suppressed.",viDef:"Một cuộc nổi dậy vũ trang chống lại chính quyền.",viExample:"Cuộc nổi dậy đã bị đàn áp tàn bạo.",cat:"war"},
+            {word:"Total destruction",def:"Complete devastation of resources.",example:"The policy of total destruction was controversial.",viDef:"Sự hủy diệt hoàn toàn tài nguyên.",viExample:"Chính sách hủy diệt hoàn toàn đã gây tranh cãi.",cat:"war"}
+          ],
+          finalBoss: [
+            {word:"Armistice",def:"An agreement to stop fighting.",example:"The armistice ended the war.",viDef:"Một thỏa thuận để ngừng chiến đấu.",viExample:"Hiệp định đình chiến đã kết thúc cuộc chiến.",cat:"war"},
+            {word:"Siege",def:"A military operation surrounding a place.",example:"The siege of the city lasted a year.",viDef:"Một hoạt động quân sự bao vây một nơi.",viExample:"Cuộc bao vây thành phố kéo dài một năm.",cat:"war"},
+            {word:"Guerrilla",def:"A member of an irregular fighting group.",example:"Guerrilla fighters used hit-and-run tactics.",viDef:"Một thành viên của một nhóm chiến đấu không chính quy.",viExample:"Các chiến binh du kích đã sử dụng chiến thuật đánh và chạy.",cat:"war"},
+            {word:"Reconnaissance",def:"Military observation of a region.",example:"The plane was on a reconnaissance mission.",viDef:"Quan sát quân sự một khu vực.",viExample:"Chiếc máy bay đang thực hiện nhiệm vụ trinh sát.",cat:"war"},
+            {word:"Battalion",def:"A large body of troops ready for battle.",example:"The battalion was sent to reinforce.",viDef:"Một lực lượng lớn quân đội sẵn sàng chiến đấu.",viExample:"Tiểu đoàn đã được gửi đến để tăng cường.",cat:"war"}
+          ]
+        },
+        hard: {
+          level1: [
+            {word:"Fight",def:"A physical confrontation.",example:"The fight was brief.",viDef:"Một cuộc đối đầu vật lý.",viExample:"Cuộc ẩu đả là ngắn ngủi.",cat:"war"},
+            {word:"Warrior",def:"A skilled or experienced fighter.",example:"The ancient warriors were feared.",viDef:"Một người chiến đấu có kỹ năng hoặc kinh nghiệm.",viExample:"Các chiến binh cổ đại được sợ hãi.",cat:"war"},
+            {word:"Troops",def:"Groups of soldiers collectively.",example:"The troops were deployed quickly.",viDef:"Các nhóm người lính cùng nhau.",viExample:"Các quân đội đã được triển khai nhanh chóng.",cat:"war"},
+            {word:"Arm",def:"A weapon or military equipment.",example:"The country began to arm its citizens.",viDef:"Một vũ khí hoặc thiết bị quân sự.",viExample:"Quốc gia này bắt đầu trang bị vũ khí cho công dân.",cat:"war"},
+            {word:"Triumph",def:"A significant victory.",example:"The triumph was celebrated nationwide.",viDef:"Một chiến thắng đáng kể.",viExample:"Chiến thắng đã được ăn mừng trên toàn quốc.",cat:"war"}
+          ],
+          level2: [
+            {word:"Plan",def:"A detailed strategy or scheme.",example:"The general devised a new plan.",viDef:"Một chiến lược hoặc kế hoạch chi tiết.",viExample:"Người tướng đã nghĩ ra một kế hoạch mới.",cat:"war"},
+            {word:"Maneuvers",def:"Planned movements of troops.",example:"The military maneuvers were impressive.",viDef:"Các cuộc di chuyển có kế hoạch của quân đội.",viExample:"Các cuộc cơ động quân sự đã ấn tượng.",cat:"war"},
+            {word:"Incursion",def:"A sudden brief invasion.",example:"The incursion was repelled quickly.",viDef:"Một cuộc xâm lược đột ngột ngắn ngủi.",viExample:"Cuộc xâm nhập đã bị đẩy lùi nhanh chóng.",cat:"war"},
+            {word:"Withdrawal",def:"Pulling back forces from a position.",example:"The withdrawal was orderly.",viDef:"Rút lực lượng khỏi một vị trí.",viExample:"Việc rút quân đã có trật tự.",cat:"war"},
+            {word:"Embargo",def:"A restriction to weaken an enemy.",example:"The embargo crippled their economy.",viDef:"Một sự hạn chế để làm suy yếu kẻ thù.",viExample:"Lệnh cấm vận đã tê liệt nền kinh tế của họ.",cat:"war"}
+          ],
+          level3: [
+            {word:"Wearing down",def:"Reducing enemy strength over time.",example:"The strategy of wearing down proved effective.",viDef:"Giảm sức mạnh kẻ thù theo thời gian.",viExample:"Chiến lược làm suy yếu đã được chứng minh là hiệu quả.",cat:"war"},
+            {word:"Lightning war",def:"A fast intense military campaign.",example:"The lightning war tactics were devastating.",viDef:"Một chiến dịch quân sự nhanh chóng cường độ cao.",viExample:"Chiến thuật chiến tranh chớp nhoáng đã tàn khốc.",cat:"war"},
+            {word:"Irregular",def:"Fighters using non-traditional tactics.",example:"Irregular forces posed a constant threat.",viDef:"Những người chiến đấu sử dụng các chiến thuật phi truyền thống.",viExample:"Lực lượng không chính quy tạo ra một mối đe dọa liên tục.",cat:"war"},
+            {word:"Rebellion",def:"An armed revolt against authority.",example:"The rebellion was crushed within weeks.",viDef:"Một cuộc nổi dậy vũ trang chống lại chính quyền.",viExample:"Cuộc nổi dậy đã bị đàn áp trong vài tuần.",cat:"war"},
+            {word:"All-out war",def:"A conflict mobilizing all resources.",example:"The nation prepared for all-out war.",viDef:"Một cuộc xung đột huy động tất cả nguồn lực.",viExample:"Quốc gia này đã chuẩn bị cho chiến tranh tổng lực.",cat:"war"}
+          ],
+          finalBoss: [
+            {word:"Armistice",def:"An agreement to stop fighting.",example:"The armistice ended the war.",viDef:"Một thỏa thuận để ngừng chiến đấu.",viExample:"Hiệp định đình chiến đã kết thúc cuộc chiến.",cat:"war"},
+            {word:"Siege",def:"A military operation surrounding a place.",example:"The siege of the city lasted a year.",viDef:"Một hoạt động quân sự bao vây một nơi.",viExample:"Cuộc bao vây thành phố kéo dài một năm.",cat:"war"},
+            {word:"Guerrilla",def:"A member of an irregular fighting group.",example:"Guerrilla fighters used hit-and-run tactics.",viDef:"Một thành viên của một nhóm chiến đấu không chính quy.",viExample:"Các chiến binh du kích đã sử dụng chiến thuật đánh và chạy.",cat:"war"},
+            {word:"Reconnaissance",def:"Military observation of a region.",example:"The plane was on a reconnaissance mission.",viDef:"Quan sát quân sự một khu vực.",viExample:"Chiếc máy bay đang thực hiện nhiệm vụ trinh sát.",cat:"war"},
+            {word:"Battalion",def:"A large body of troops ready for battle.",example:"The battalion was sent to reinforce.",viDef:"Một lực lượng lớn quân đội sẵn sàng chiến đấu.",viExample:"Tiểu đoàn đã được gửi đến để tăng cường.",cat:"war"}
+          ]
+        }
+      };
+      vocabLoaded = true;
+      
+      if (loadingIndicator) {
+        loadingIndicator.classList.remove('active');
+      }
+    }
+  })();
+  
+  return vocabLoadingPromise;
+}
 
 /* ===== local storage helpers ===== */
-function loadVocab(){
-  let v = localStorage.getItem('wb_vocab');
-  if(v) try{return JSON.parse(v);}catch(e){}
-  return JSON.parse(JSON.stringify(defaultVocab));
-}
-let vocab = loadVocab();
-
 let state = {
   currentLevel: 1,
   health: 100,
   armyStrength: 0,
   levelProgress: { correct: 0, total: 5 }, // level1: 5, level2: 7, level3: 10, finalBoss: 10/12
   badges: [],
-  learnedWords: []
+  learnedWords: [],
+  combo: 0,
+  difficulty: 'easy',
+  soundEnabled: true
 };
 function loadState(){
   let s = localStorage.getItem('wb_state');
@@ -395,8 +715,10 @@ function updateHUD(){
   
   // Update badges
   updateBadges();
+  
+  // Update army visualization
+  updateArmyVisualization();
 }
-updateHUD();
 
 function updateBadges() {
   const badgesContainer = document.getElementById('badgesContainer');
@@ -410,7 +732,8 @@ function updateBadges() {
   const badgeNames = {
     'strategist': LANG === 'en' ? 'The Strategist' : 'Nhà chiến lược',
     'commander': LANG === 'en' ? 'The Commander' : 'Chỉ huy',
-    'conqueror': LANG === 'en' ? 'The Conqueror' : 'Người chinh phục'
+    'conqueror': LANG === 'en' ? 'The Conqueror' : 'Người chinh phục',
+    'combo': LANG === 'en' ? 'Combo Master' : 'Bậc thầy Combo'
   };
   
   state.badges.forEach(badge => {
@@ -450,6 +773,69 @@ function updateBarracks() {
   barracksContent.appendChild(wordsList);
 }
 
+function updateArmyVisualization() {
+  const armyContainer = document.getElementById('armyContainer');
+  armyContainer.innerHTML = '';
+  
+  // Add soldiers based on army strength (1 soldier per 10 strength)
+  const soldierCount = Math.min(Math.floor(state.armyStrength / 10), 20);
+  
+  for (let i = 0; i < soldierCount; i++) {
+    const soldier = document.createElement('div');
+    soldier.className = 'soldier';
+    soldier.innerText = '🪖';
+    armyContainer.appendChild(soldier);
+  }
+}
+
+function showFeedbackMessage(message, type) {
+  const feedbackEl = document.getElementById('feedbackMessage');
+  feedbackEl.innerText = message;
+  feedbackEl.className = 'feedback-message feedback-' + type;
+  feedbackEl.style.opacity = '1';
+  
+  // Add shake effect for wrong answers
+  if (type === 'wrong') {
+    document.getElementById('battleArea').classList.add('shake');
+    setTimeout(() => {
+      document.getElementById('battleArea').classList.remove('shake');
+    }, 500);
+  }
+  
+  // Add pulse effect for correct answers
+  if (type === 'correct' || type === 'combo') {
+    document.getElementById('battleArea').classList.add('pulse');
+    setTimeout(() => {
+      document.getElementById('battleArea').classList.remove('pulse');
+    }, 500);
+  }
+  
+  setTimeout(() => {
+    feedbackEl.style.opacity = '0';
+  }, 1500);
+}
+
+function updateCombo() {
+  const comboCounter = document.getElementById('comboCounter');
+  const comboValue = document.getElementById('comboValue');
+  
+  if (state.combo > 1) {
+    comboCounter.classList.add('active');
+    comboValue.innerText = state.combo;
+    
+    // Show combo message
+    if (state.combo === 2) {
+      showFeedbackMessage(t('combo2'), 'combo');
+    } else if (state.combo === 3) {
+      showFeedbackMessage(t('combo3'), 'combo');
+    } else if (state.combo >= 5) {
+      showFeedbackMessage(t('combo5'), 'combo');
+    }
+  } else {
+    comboCounter.classList.remove('active');
+  }
+}
+
 const views = {battle:document.getElementById('view-battle'),barracks:document.getElementById('view-barracks'),edit:document.getElementById('view-edit')};
 const btnBattle=document.getElementById('btn-battle'),btnBarracks=document.getElementById('btn-barracks'),btnEdit=document.getElementById('btn-edit');
 btnBattle.onclick=()=>show('battle');btnBarracks.onclick=()=>show('barracks');btnEdit.onclick=()=>show('edit');
@@ -472,9 +858,22 @@ function applyLang(){
   document.getElementById('btn-help').onclick = ()=>alert(STRINGS[LANG].how + '\n\n' + STRINGS[LANG].scoring);
   document.getElementById('nextBattle').innerText = STRINGS[LANG].startBattle;
   document.getElementById('questionText').innerText = STRINGS[LANG].pressStart;
+  document.querySelector('.difficulty-selector .small').innerText = STRINGS[LANG].vocabSet;
+  document.querySelectorAll('.difficulty-btn').forEach((btn, index) => {
+    btn.innerText = ['basic', 'advanced', 'expert'].map(key => STRINGS[LANG][key])[index];
+  });
   updateHUD();
 }
-applyLang();
+
+/* ===== vocabulary set selector ===== */
+document.querySelectorAll('.difficulty-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.difficulty-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    state.difficulty = this.dataset.diff;
+    saveState();
+  });
+});
 
 /* ===== small controls ===== */
 document.getElementById('btn-reset').onclick=()=>{
@@ -486,7 +885,10 @@ document.getElementById('btn-reset').onclick=()=>{
       armyStrength: 0,
       levelProgress: { correct: 0, total: 5 },
       badges: [],
-      learnedWords: []
+      learnedWords: [],
+      combo: 0,
+      difficulty: 'easy',
+      soundEnabled: true
     };
     saveState();
     alert(LANG==='en'? 'Game reset. Good luck, Commander!' : 'Đã đặt lại trò chơi. Chúc may mắn, Chỉ huy!');
@@ -495,64 +897,128 @@ document.getElementById('btn-reset').onclick=()=>{
 document.getElementById('btn-help').onclick=()=>alert(STRINGS[LANG].how + '\n\n' + STRINGS[LANG].scoring);
 
 /* ===== battle logic ===== */
-let battleTimerId=null;let battleTime=20;let currentQ=null;
+let battleTimerId=null;let battleTime=20;let currentQ=null;let answerSelected=false;
 function pickQuestion(level){
+  if (!vocab || !vocab[state.difficulty]) {
+    console.error('Vocabulary not loaded or difficulty not found');
+    return null;
+  }
+  
   let pool;
   if(level === 4) {
-    pool = vocab.finalBoss;
+    pool = vocab[state.difficulty].finalBoss;
   } else {
     let levelKey = 'level' + level;
-    pool = vocab[levelKey];
+    pool = vocab[state.difficulty][levelKey];
   }
   
-  if(pool.length===0) return null;
+  if(!pool || pool.length === 0) return null;
   let correct = pool[Math.floor(Math.random()*pool.length)];
   let options = [correct];
-  
-  // Add 3 distractors from the same level
-  while(options.length<4){
-    let cand = pool[Math.floor(Math.random()*pool.length)];
-    if(!options.find(o=>o.word===cand.word)) options.push(cand);
+
+  // Try to add up to 3 unique distractors from the same pool,
+  // but protect against infinite loops when pool has <4 items.
+  let attempts = 0;
+  const maxAttempts = 100;
+  while (options.length < 4 && attempts < maxAttempts) {
+    attempts++;
+    let cand = pool[Math.floor(Math.random() * pool.length)];
+    if (!options.find(o => o.word === cand.word)) options.push(cand);
   }
-  
+
+  // If we still don't have enough options, pull from other levels in the same difficulty
+  if (options.length < 4) {
+    const otherCandidates = [];
+    for (let k in vocab[state.difficulty]) {
+      if (Array.isArray(vocab[state.difficulty][k])) {
+        vocab[state.difficulty][k].forEach(it => {
+          if (it.word !== correct.word && !options.find(o => o.word === it.word)) {
+            otherCandidates.push(it);
+          }
+        });
+      }
+    }
+    // add from the collected pool
+    for (let i = 0; i < otherCandidates.length && options.length < 4; i++) {
+      options.push(otherCandidates[i]);
+    }
+  }
+
+  // If still not enough (very small vocab), fill with placeholders (non-blocking fallback)
+  while (options.length < 4) {
+    options.push({ word: '__', def: LANG === 'en' ? '—' : '—' });
+  }
+
   // Shuffle options
   for(let i=options.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[options[i],options[j]]=[options[j],options[i]]}
   return {q:correct,options};
 }
 
 document.getElementById('nextBattle').onclick=()=>startBattle();
-function startBattle(){
-  stopTimer();
-  resetBattleArea();
+async function startBattle(){
+  // Disable the button during loading
+  const startButton = document.getElementById('nextBattle');
+  startButton.disabled = true;
+  startButton.innerText = LANG === 'en' ? 'Loading...' : 'Đang tải...';
   
-  let q = pickQuestion(state.currentLevel);
-  if(!q){
-    document.getElementById('questionText').innerText=(LANG==='en'? 'No words available for this level.' : 'Không có từ nào cho cấp độ này.');
-    return;
-  }
-  
-  currentQ=q;
-  document.getElementById('questionText').innerText = (LANG==='en'? 'What is the meaning of: "' : 'Nghĩa của từ là: "') + q.q.word + '"?';
-  let opts = document.getElementById('options');opts.innerHTML='';
-  
-  q.options.forEach(o=>{
-    let b = document.createElement('div');
-    b.className='option';
-    b.innerText=o.def;
-    b.onclick=()=>selectOption(b,o);
-    opts.appendChild(b);
-  });
-  
-  battleTime=20;
-  document.getElementById('timer').innerText=battleTime+'s';
-  battleTimerId=setInterval(()=>{
-    battleTime--;
-    document.getElementById('timer').innerText=battleTime+'s';
-    if(battleTime<=0){
-      stopTimer();
-      revealAnswer(null);
+  try {
+    // Make sure vocabulary is loaded
+    if (!vocabLoaded) {
+      await loadVocabulary();
     }
-  },1000);
+    
+    if (!vocab || !vocab[state.difficulty]) {
+      alert(LANG === 'en' ? 'Vocabulary not available. Please try again later.' : 'Từ vựng không khả dụng. Vui lòng thử lại sau.');
+      return;
+    }
+    
+    stopTimer();
+    resetBattleArea();
+    
+    let q = pickQuestion(state.currentLevel);
+    if(!q){
+      document.getElementById('questionText').innerText=(LANG==='en'? 'No words available for this level.' : 'Không có từ nào cho cấp độ này.');
+      return;
+    }
+    
+    currentQ=q;
+    answerSelected = false;
+    document.getElementById('questionText').innerText = (LANG==='en'? 'What is the meaning of: "' : 'Nghĩa của từ là: "') + q.q.word + '"?';
+    let opts = document.getElementById('options');opts.innerHTML='';
+    
+    q.options.forEach(o=>{
+      let b = document.createElement('div');
+      b.className='option';
+      b.innerText=o.def;
+      b.onclick=()=>selectOption(b,o);
+      opts.appendChild(b);
+    });
+    
+    // Change button text to "Continue"
+    startButton.innerText = STRINGS[LANG].continueBattle;
+    startButton.disabled = false;
+    
+    // Set timer based on difficulty
+    let timeLimit = 20;
+    if (state.difficulty === 'medium') timeLimit = 15;
+    if (state.difficulty === 'hard') timeLimit = 10;
+    
+    battleTime=timeLimit;
+    document.getElementById('timer').innerText=battleTime+'s';
+    battleTimerId=setInterval(()=>{
+      battleTime--;
+      document.getElementById('timer').innerText=battleTime+'s';
+      if(battleTime<=0){
+        stopTimer();
+        revealAnswer(null);
+      }
+    },1000);
+  } catch (error) {
+    console.error('Error starting battle:', error);
+    alert(LANG === 'en' ? 'Error starting battle. Please try again.' : 'Lỗi bắt đầu trận chiến. Vui lòng thử lại.');
+    startButton.innerText = STRINGS[LANG].startBattle;
+    startButton.disabled = false;
+  }
 }
 
 function resetBattleArea() {
@@ -560,6 +1026,12 @@ function resetBattleArea() {
   document.getElementById('options').innerHTML = '';
   document.getElementById('timer').innerText = '--';
   currentQ = null;
+  answerSelected = false;
+  
+  // Reset button text to "Start Battle"
+  const startButton = document.getElementById('nextBattle');
+  startButton.innerText = STRINGS[LANG].startBattle;
+  startButton.disabled = false;
 }
 
 function stopTimer(){
@@ -569,6 +1041,10 @@ function stopTimer(){
 }
 
 function selectOption(el,opt){
+  // Prevent multiple clicks on the same question
+  if (answerSelected) return;
+  answerSelected = true;
+  
   stopTimer();
   if(!currentQ) return;
   
@@ -600,7 +1076,20 @@ function revealAnswer(selected){
 }
 
 function onCorrect(){
-  state.armyStrength += 10;
+  // Show feedback
+  showFeedbackMessage(t('correct'), 'correct');
+  
+  // Increase combo
+  state.combo++;
+  updateCombo();
+  
+  // Calculate points based on combo
+  let points = 10;
+  if (state.combo >= 2) points += 5;
+  if (state.combo >= 3) points += 5;
+  if (state.combo >= 5) points += 5;
+  
+  state.armyStrength += points;
   state.levelProgress.correct++;
   
   // Add word to learned words if not already there
@@ -624,7 +1113,16 @@ function onCorrect(){
 }
 
 function onWrong(){
+  // Show feedback
+  showFeedbackMessage(t('wrong'), 'wrong');
+  
+  // Reset combo
+  state.combo = 0;
+  updateCombo();
+  
+  // Reduce health and army strength
   state.health -= 5;
+  state.armyStrength = Math.max(0, state.armyStrength - 3);
   
   if(state.health <= 0) {
     state.health = 0;
@@ -671,6 +1169,11 @@ function showLevelComplete() {
     state.badges.push(badge);
   }
   
+  // Add combo badge if player achieved high combo
+  if(state.combo >= 5 && !state.badges.includes('combo')) {
+    state.badges.push('combo');
+  }
+  
   document.getElementById('levelCompleteTitle').innerText = STRINGS[LANG].levelComplete;
   document.getElementById('levelCompleteMessage').innerText = STRINGS[LANG].levelCompleteMsg + ' ' + 
     (LANG === 'en' ? `You've earned the "${title}" badge!` : `Bạn đã nhận được huy hiệu "${title}"!`);
@@ -715,8 +1218,8 @@ document.getElementById('nextLevelBtn').onclick = nextLevel;
 document.getElementById('saveVocab').onclick=()=>{
   try{
     let j = JSON.parse(document.getElementById('vocabJson').value);
-    if(!j.level1 || !j.level2 || !j.level3 || !j.finalBoss) {
-      throw (LANG==='en' ? 'Vocabulary must include level1, level2, level3, and finalBoss arrays' : 'Từ vựng phải bao gồm các mảng level1, level2, level3 và finalBoss');
+    if(!j.easy || !j.medium || !j.hard) {
+      throw (LANG==='en' ? 'Vocabulary must include easy, medium, and hard sets' : 'Từ vựng phải bao gồm các bộ dễ, trung bình và khó');
     }
     
     vocab = j;
@@ -729,16 +1232,29 @@ document.getElementById('saveVocab').onclick=()=>{
 
 document.getElementById('resetVocab').onclick=()=>{
   if(confirm(LANG==='en'? 'Reset vocabulary to default?':'Bạn có muốn đặt lại danh sách từ về mặc định?')){
-    vocab = JSON.parse(JSON.stringify(defaultVocab));
     localStorage.removeItem('wb_vocab');
-    document.getElementById('vocabJson').value=JSON.stringify(vocab,null,2);
-    alert(LANG==='en'? 'Reset to default.' : 'Đã đặt lại mặc định.');
+    vocabLoaded = false; // Reset vocab loaded flag
+    loadVocabulary().then(() => {
+      document.getElementById('vocabJson').value = JSON.stringify(vocab, null, 2);
+      alert(LANG==='en'? 'Reset to default.' : 'Đã đặt lại mặc định.');
+    });
   }
 };
 
 /* ===== init ===== */
-updateBarracks();
-document.getElementById('vocabJson').value = JSON.stringify(vocab,null,2);
+async function init() {
+  try {
+    await loadVocabulary();
+    updateHUD();
+    updateBarracks();
+    document.getElementById('vocabJson').value = JSON.stringify(vocab, null, 2);
+  } catch (error) {
+    console.error('Initialization error:', error);
+  }
+}
+
+// Initialize the game when the page loads
+document.addEventListener('DOMContentLoaded', init);
 
 /* ===== download handler ===== */
 document.getElementById('downloadBtn').addEventListener('click', (e)=>{
