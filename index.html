@@ -780,10 +780,21 @@ function updateArmyVisualization() {
   // Add soldiers based on army strength (1 soldier per 10 strength)
   const soldierCount = Math.min(Math.floor(state.armyStrength / 10), 20);
   
+  // Discord emoji URL - replace with your actual emoji URL
+  const discordEmojiUrl = 'https://cdn.discordapp.com/emojis/947245202773540884.gif'; // Replace with your emoji URL
+  
   for (let i = 0; i < soldierCount; i++) {
     const soldier = document.createElement('div');
     soldier.className = 'soldier';
-    soldier.innerText = '🪖';
+    
+    // Create image element for Discord emoji
+    const img = document.createElement('img');
+    img.src = discordEmojiUrl;
+    img.style.width = '30px';  // Adjust size as needed
+    img.style.height = '30px'; // Adjust size as needed
+    img.style.verticalAlign = 'middle';
+    
+    soldier.appendChild(img);
     armyContainer.appendChild(soldier);
   }
 }
@@ -872,6 +883,11 @@ document.querySelectorAll('.difficulty-btn').forEach(btn => {
     this.classList.add('active');
     state.difficulty = this.dataset.diff;
     saveState();
+    
+    // If we're in the battle view, reset the battle area to reflect the new difficulty
+    if (views.battle.style.display === 'block') {
+      resetBattleArea();
+    }
   });
 });
 
@@ -912,12 +928,15 @@ function pickQuestion(level){
     pool = vocab[state.difficulty][levelKey];
   }
   
-  if(!pool || pool.length === 0) return null;
+  if(!pool || pool.length === 0) {
+    document.getElementById('questionText').innerText = t('noVocab');
+    return null;
+  }
+  
   let correct = pool[Math.floor(Math.random()*pool.length)];
   let options = [correct];
 
-  // Try to add up to 3 unique distractors from the same pool,
-  // but protect against infinite loops when pool has <4 items.
+  // Try to add up to 3 unique distractors from the same pool
   let attempts = 0;
   const maxAttempts = 100;
   while (options.length < 4 && attempts < maxAttempts) {
@@ -944,7 +963,7 @@ function pickQuestion(level){
     }
   }
 
-  // If still not enough (very small vocab), fill with placeholders (non-blocking fallback)
+  // If still not enough (very small vocab), fill with placeholders
   while (options.length < 4) {
     options.push({ word: '__', def: LANG === 'en' ? '—' : '—' });
   }
@@ -1010,7 +1029,12 @@ async function startBattle(){
       document.getElementById('timer').innerText=battleTime+'s';
       if(battleTime<=0){
         stopTimer();
-        revealAnswer(null);
+        // Apply penalty for running out of time
+        if (!answerSelected) {
+          answerSelected = true;
+          onWrong();
+          revealAnswer(null);
+        }
       }
     },1000);
   } catch (error) {
@@ -1038,10 +1062,18 @@ function stopTimer(){
   if(battleTimerId)clearInterval(battleTimerId);
   battleTimerId=null;
   document.getElementById('timer').innerText='--';
+  
+  // Check if time ran out and no answer was selected
+  if(battleTime <= 0 && !answerSelected && currentQ) {
+    // Apply penalties for running out of time
+    answerSelected = true;
+    onWrong();
+    revealAnswer(null);
+  }
 }
 
 function selectOption(el,opt){
-  // Prevent multiple clicks on the same question
+  // Prevent multiple clicks on the same question or after time runs out
   if (answerSelected) return;
   answerSelected = true;
   
